@@ -38,9 +38,8 @@ public class HelloServlet extends HttpServlet {
             out.println("<title>Servlet HelloServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet HelloServlet at " + request.getContextPath() + "</h1>");
-            out.println("<p>I made it to this point</p>");
-            out.println("<p>This is interesting</p>");
+            //out.println("<h1>Servlet HelloServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h2 style='font-weight:bold;color: green; font-size: 55px;' >My First Java Servlet Ever!!!!!</h2>");
             out.println("</body>");
             out.println("</html>");
         }
