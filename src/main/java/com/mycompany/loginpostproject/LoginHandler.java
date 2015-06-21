@@ -32,6 +32,8 @@ public class LoginHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR");
+            
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
             
@@ -42,6 +44,7 @@ public class LoginHandler extends HttpServlet {
             }
 
             request.getSession().setAttribute("failed", "true");
+            request.getSession().setAttribute("path", dataDirectory);
             request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 

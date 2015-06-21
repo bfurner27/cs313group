@@ -19,6 +19,7 @@
                 String isFailed = session.getAttribute("failed").toString();
                 if (isFailed.equals("true")) {
                     out.println("<h1>Ultimate Failure</h1>");
+                    out.println("<h1>" + session.getAttribute("path").toString() + "</h1>");
                 }
             }
             
