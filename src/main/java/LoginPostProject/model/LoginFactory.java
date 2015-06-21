@@ -24,7 +24,8 @@ public class LoginFactory {
         } else if (version.equals("FileHardCoded")) {
             String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR");
             try {    
-                File file = new File(dataDirectory + "/usernamesAndPasswords.txt");
+                System.out.println(dataDirectory + "usernamesAndPasswords.txt");
+                File file = new File(dataDirectory + "usernamesAndPasswords.txt");
                 if (!file.exists()) {
                     file.createNewFile();
                 }
@@ -33,7 +34,7 @@ public class LoginFactory {
             } catch (IOException ex) {
                 System.out.println("This failed to write the file. Details are: " + ex);
             }
-            instance = new LoginFile(dataDirectory + "/usernamesAndPasswords.txt");
+            instance = new LoginFile(dataDirectory + "usernamesAndPasswords.txt");
         }
         
         return instance;
