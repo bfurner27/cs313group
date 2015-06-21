@@ -13,6 +13,11 @@
     </head>
     <body>
         <h1>Welcome ${username}</h1>
-        <a href="LogoutHandler">logout</a>
+        <form action="CreatePost" method="POST">
+            <label>Post: </label><br />
+            <textarea type="text" name="user" /> </textarea><br />
+            <button type="submit">Log In</button> 
+        </form>
+        <a href="LogoutHandler" >Logout</a>
     </body>
 </html>
