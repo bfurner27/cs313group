@@ -7,6 +7,7 @@ package com.mycompany.loginpostproject;
 
 import LoginPostProject.model.Login;
 import LoginPostProject.model.LoginFactory;
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -43,6 +44,12 @@ public class LoginHandler extends HttpServlet {
                 request.getRequestDispatcher("postPage.jsp").forward(request, response);
             }
 
+            dataDirectory += "usernamesAndPasswords.txt";
+            File file = new File(dataDirectory);
+                if (!file.exists()) {
+                    file.createNewFile();
+                    dataDirectory = "newFileCreated?";
+                }
             request.getSession().setAttribute("failed", "true");
             request.getSession().setAttribute("path", dataDirectory);
             request.getRequestDispatcher("index.jsp").forward(request, response);
