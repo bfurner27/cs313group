@@ -5,14 +5,6 @@
  */
 package com.mycompany.loginpostproject;
 
-import LoginPostProject.model.Login;
-import LoginPostProject.model.LoginFactory;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -25,8 +17,8 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Benjamin
  */
-@WebServlet(name = "LoginHandler", urlPatterns = {"/LoginHandler"})
-public class LoginHandler extends HttpServlet {
+@WebServlet(name = "CreatePost", urlPatterns = {"/CreatePost"})
+public class CreatePost extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -38,31 +30,8 @@ public class LoginHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String dataDirectory = "";//System.getenv("OPENSHIFT_DATA_DIR");
-            
-            String username = request.getParameter("user");
-            String pass = request.getParameter("pass");
-            
-            String path = System.getenv("OPENSHIFT_DATA_DIR") + "usernameAndPassword.txt";
-            //System.out.println(path);
-            File file = new File(path);  
-            
-            
-            Login login = new LoginFactory().getFileCheckLogin(file.getPath());
-            if (login.confirmLogin(username, pass)) {
-                request.getSession().setAttribute("username", username);
-                request.getRequestDispatcher("postPage.jsp").forward(request, response);
-            }
-
-            //dataDirectory = "usernameAndPasswords.txt";
-
-            
-  
-                
-
-            request.getSession().setAttribute("failed", "true");
-            request.getSession().setAttribute("path", dataDirectory);
-            request.getRequestDispatcher("index.jsp").forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

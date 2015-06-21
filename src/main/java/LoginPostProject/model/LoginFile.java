@@ -49,7 +49,7 @@ public class LoginFile implements Login{
                 usernames.add(userPass[0]);
                 passwords.add(userPass[1]);
             }
-                
+            fin.close();
         } catch (FileNotFoundException ex) {
             System.out.println("This failed to write details are " + ex);
         } catch (IOException ex) {
