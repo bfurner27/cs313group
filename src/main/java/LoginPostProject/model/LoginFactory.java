@@ -44,16 +44,16 @@ public class LoginFactory {
     
     public Login getFileCheckLogin(String fileName) {
         Login instance = null;
-            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR") + "usernameAndPasswords.txt";
             try {    
-                File file = new File(dataDirectory);
+                File file = new File(fileName);
                 if (!file.exists()) {
                     file.createNewFile();
                 
-                    BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory));
-                    fout.write("admin,password\n" + "new,goinghome\n" + "sillyBen80,gogroup");
-                    fout.close();
+
                 }
+                BufferedWriter fout = new BufferedWriter(new FileWriter(file));
+                fout.write("admin,password\n" + "new,goinghome\n" + "sillyBen80,gogroup");
+                fout.close();
             } catch (IOException ex) {
                 System.out.println("This failed to write the file. Details are: " + ex);
             }

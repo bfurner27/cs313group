@@ -43,12 +43,11 @@ public class LoginHandler extends HttpServlet {
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
             
-            String path = System.getenv("OPENSHIFT_DATA_DIR") + "usernameAndPassword.txt";
-            //System.out.println(path);
-            File file = new File(path);  
+            String path = System.getenv("OPENSHIFT_DATA_DIR") + "usernameAndPasswords.txt";
+            //System.out.println(path);  
             
             
-            Login login = new LoginFactory().getFileCheckLogin(file.getPath());
+            Login login = new LoginFactory().getFileCheckLogin(path);
             if (login.confirmLogin(username, pass)) {
                 request.getSession().setAttribute("username", username);
                 request.getRequestDispatcher("postPage.jsp").forward(request, response);
