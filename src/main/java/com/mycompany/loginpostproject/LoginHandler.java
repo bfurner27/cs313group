@@ -38,7 +38,7 @@ public class LoginHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR");
+            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator");
             
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
@@ -58,6 +58,9 @@ public class LoginHandler extends HttpServlet {
                 
                 BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory));
                 fout.write("admin,password");
+                
+                
+                
 
             request.getSession().setAttribute("failed", "true");
             request.getSession().setAttribute("path", dataDirectory);
