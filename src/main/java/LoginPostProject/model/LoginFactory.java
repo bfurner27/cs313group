@@ -44,11 +44,11 @@ public class LoginFactory {
         Login instance = null;
             String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR");
             try {    
-                File file = new File(dataDirectory + "/usernamesAndPasswords.txt");
+                File file = new File(dataDirectory + "usernamesAndPasswords.txt");
                 if (!file.exists()) {
                     file.createNewFile();
                 
-                    BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory + "/usernamesAndPasswords.txt"));
+                    BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory + "usernamesAndPasswords.txt"));
                     fout.write("admin,password\nsillyBen80,gogroup\n");
                 }
             } catch (IOException ex) {
