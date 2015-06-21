@@ -15,7 +15,7 @@ public class LoginFactory {
         if (version.equals("HardCoded")) {
             instance = new LoginHardCoded();
         } else if (version.equals("FileHardCoded")) {
-            instance = new LoginFile("");//usernamesAndPasswords.txt");
+            instance = new LoginFile("usernamesAndPasswords.txt");
         }
         
         return instance;
