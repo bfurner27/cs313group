@@ -35,8 +35,7 @@ public class LoginHandler extends HttpServlet {
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
             
-            String path = getServletContext().getRealPath("/") + "usernamesAndPasswords.txt";
-            Login login = new LoginFactory().getFileCheckLogin(path);
+            Login login = new LoginFactory().getFileCheckLogin("");
             if (login.confirmLogin(username, pass)) {
                 request.getSession().setAttribute("username", username);
                 request.getRequestDispatcher("postPage.jsp").forward(request, response);
