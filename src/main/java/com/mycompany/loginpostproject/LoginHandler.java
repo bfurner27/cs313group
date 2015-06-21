@@ -8,9 +8,11 @@ package com.mycompany.loginpostproject;
 import LoginPostProject.model.Login;
 import LoginPostProject.model.LoginFactory;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -53,20 +55,10 @@ public class LoginHandler extends HttpServlet {
                     file.createNewFile();
                     //dataDirectory = "newFileCreated?";
                 }
-                        try {
-            BufferedReader fin = new BufferedReader(new FileReader(dataDirectory));
-            String line = "";
-            while ((line = fin.readLine()) != null) {
-                String userPass[] = line.split(",");
-                dataDirectory += userPass[0];
-                dataDirectory += userPass[1];
-            }
                 
-        } catch (FileNotFoundException ex) {
-            System.out.println("This failed to write details are " + ex);
-        } catch (IOException ex) {
-            System.out.println("This failed to write details are " + ex);
-        }
+                BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory));
+                fout.write("admin,password");
+
             request.getSession().setAttribute("failed", "true");
             request.getSession().setAttribute("path", dataDirectory);
             request.getRequestDispatcher("index.jsp").forward(request, response);
