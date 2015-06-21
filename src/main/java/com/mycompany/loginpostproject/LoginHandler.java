@@ -56,10 +56,10 @@ public class LoginHandler extends HttpServlet {
                     //dataDirectory = "newFileCreated?";
                 }
                 
-                BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory));
+                BufferedWriter fout = new BufferedWriter(new FileWriter(file));
                 fout.write("admin,password");
                 
-                    try {
+            try {
             BufferedReader fin = new BufferedReader(new FileReader(file));
             String line = "";
             while ((line = fin.readLine()) != null) {
