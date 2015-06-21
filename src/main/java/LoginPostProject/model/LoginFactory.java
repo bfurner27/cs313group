@@ -54,7 +54,7 @@ public class LoginFactory {
             } catch (IOException ex) {
                 System.out.println("This failed to write the file. Details are: " + ex);
             }
-            instance = new LoginFile(dataDirectory + "/usernamesAndPasswords.txt");
+            instance = new LoginFile(dataDirectory + "usernamesAndPasswords.txt");
         return instance;
     }
 }
