@@ -42,7 +42,7 @@ public class LoginFactory {
     
     public Login getFileCheckLogin(String fileName) {
         Login instance = null;
-            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator") + "usernamesAndPasswords.txt";
+            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR") + "usernamesAndPasswords.txt";
             try {    
                 File file = new File(dataDirectory);
                 if (!file.exists()) {

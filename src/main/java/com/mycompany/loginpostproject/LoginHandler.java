@@ -38,7 +38,7 @@ public class LoginHandler extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator");
+            String dataDirectory = System.getenv("OPENSHIFT_DATA_DIR");
             
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
@@ -59,7 +59,20 @@ public class LoginHandler extends HttpServlet {
                 BufferedWriter fout = new BufferedWriter(new FileWriter(dataDirectory));
                 fout.write("admin,password");
                 
+                    try {
+            BufferedReader fin = new BufferedReader(new FileReader(file));
+            String line = "";
+            while ((line = fin.readLine()) != null) {
+                String userPass[] = line.split(",");
+                dataDirectory = userPass[0];
+                //passwords.add(userPass[1]);
+            }
                 
+        } catch (FileNotFoundException ex) {
+            System.out.println("This failed to write details are " + ex);
+        } catch (IOException ex) {
+            System.out.println("This failed to write details are " + ex);
+        }    
                 
 
             request.getSession().setAttribute("failed", "true");
