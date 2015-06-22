@@ -51,6 +51,7 @@ public class LoginHandler extends HttpServlet {
             if (login.confirmLogin(username, pass)) {
                 request.getSession().setAttribute("username", username);
                 request.getRequestDispatcher("postPage.jsp").forward(request, response);
+                return;
             }
 
             //dataDirectory = "usernameAndPasswords.txt";
