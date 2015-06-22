@@ -43,7 +43,7 @@ public class LoginHandler extends HttpServlet {
             String username = request.getParameter("user");
             String pass = request.getParameter("pass");
             
-            String path = System.getenv("OPENSHIFT_DATA_DIR") + "usernameAndPasswords.txt";
+            String path = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator") +  "usernameAndPasswords.txt";
             //System.out.println(path);  
             
             
