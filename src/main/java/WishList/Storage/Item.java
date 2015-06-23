@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package WishList.Business;
+package WishList.Storage;
 
 import java.net.URL;
 
@@ -12,7 +12,7 @@ import java.net.URL;
  *
  * @author Schuyler
  */
-public class ListItem {
+public class Item {
     private URL imageUrl;
     private URL url;
     private String descrition;
@@ -21,9 +21,9 @@ public class ListItem {
     private int id;
     private int listId;
     
-    public ListItem() {
+    public Item() {
     }
-
+    
     /**
      * Used when user is creating a new item. The itemId can be left out until 
      * added into the database
@@ -34,7 +34,7 @@ public class ListItem {
      * @param price
      * @param listId ID for the list that it belongs to
      */
-    public ListItem(URL imageUrl, URL url, String descrition, String title, 
+    public Item(URL imageUrl, URL url, String descrition, String title, 
             float price, int listId) {
         this.imageUrl = imageUrl;
         this.url = url;
@@ -54,7 +54,7 @@ public class ListItem {
      * @param id
      * @param listId
      */
-    public ListItem(URL imageUrl, URL url, String descrition, String title, 
+    public Item(URL imageUrl, URL url, String descrition, String title, 
             float price, int id, int listId) {
         this.imageUrl = imageUrl;
         this.url = url;
@@ -66,8 +66,8 @@ public class ListItem {
     }
     
     /**
-     * Used so that a ListItem can simply be output and it will generate the 
-     * HTML for the item in the list
+     * Used so that a Item can simply be output and it will generate the 
+ HTML for the item in the list
      * @return 
      */
     @Override
