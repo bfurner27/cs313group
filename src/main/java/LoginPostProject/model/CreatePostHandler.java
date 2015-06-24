@@ -32,9 +32,9 @@ public class CreatePostHandler {
     
     public void writePost(Post thePost) {
         try {
-            BufferedWriter fout = new BufferedWriter(new FileWriter(filename /*, true*/));
+            BufferedWriter fout = new BufferedWriter(new FileWriter(filename, true));
             String format = thePost.getUser() + "," + thePost.getTitle() + "," + thePost.getContent() + "," + thePost.getDate();
-            fout.write("");
+            fout.write(format);
             fout.newLine();
             fout.close();
         } catch (IOException ex) {

@@ -42,7 +42,16 @@ public class DisplayPostHandler {
             for (int i = 0; fin.ready(); i++) {
                 String line = fin.readLine();
                 String sections[] = line.split((","));
-                if (sections.length < 4) {
+                if (sections.length < 1) {
+                    posts.add(new Post());
+                }
+                else if (sections.length < 2) {
+                    posts.add(new Post(sections[0], "", "", "2000/01/01"));
+                }
+                else if (sections.length < 3) {
+                    posts.add(new Post(sections[0], sections[1], "", "2000/01/01"));
+                }
+                else if (sections.length < 4) {
                     posts.add(new Post(sections[0], sections[1], sections[2], "2000/01/01"));
                 }
                 else {
