@@ -42,7 +42,12 @@ public class DisplayPostHandler {
             for (int i = 0; fin.ready(); i++) {
                 String line = fin.readLine();
                 String sections[] = line.split((","));
-                posts.add(new Post(sections[0], sections[1], sections[2], sections[3]));
+                if (sections.length < 4) {
+                    posts.add(new Post(sections[0], sections[1], sections[2], "2000/01/01"));
+                }
+                else {
+                    posts.add(new Post(sections[0], sections[1], sections[2], sections[3]));
+                }
             }
             
         } catch (FileNotFoundException ex) {
