@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import LoginPostProject.model.CreatePostHandler;
 import LoginPostProject.model.Post;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -39,7 +40,7 @@ public class CreatePost extends HttpServlet {
         
         String path = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator") +  "posts.txt";
         CreatePostHandler ph = new CreatePostHandler(path);
-        ph.writePost(new Post(username, title, text, new Date()));
+        ph.writePost(new Post(username, title, text, Calendar.getInstance()));
         
         response.sendRedirect("DisplayPosts");
         

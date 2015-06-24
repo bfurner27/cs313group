@@ -9,6 +9,7 @@ import java.text.DateFormat;
 import java.text.FieldPosition;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -23,12 +24,12 @@ public class Post {
 
 
 
-    public Post(String user, String title, String content, Date theDate) {
+    public Post(String user, String title, String content, Calendar theDate) {
         this.user = user;
         this.title = title;
         this.content = content;
         DateFormat df = new SimpleDateFormat("yyyy/mm/dd");
-        this.date = df.format(theDate);
+        this.date = df.format(theDate.getTime());
     }
     
     public Post(String user, String title, String content, String theDate) {
