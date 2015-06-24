@@ -5,23 +5,23 @@
  */
 package com.mycompany.loginpostproject;
 
+import LoginPostProject.model.DisplayPostHandler;
+import LoginPostProject.model.Post;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import LoginPostProject.model.CreatePostHandler;
-import LoginPostProject.model.Post;
-import java.util.Date;
 
 /**
  *
  * @author Benjamin
  */
-@WebServlet(name = "CreatePost", urlPatterns = {"/CreatePost"})
-public class CreatePost extends HttpServlet {
+@WebServlet(name = "DisplayPosts", urlPatterns = {"/DisplayPosts"})
+public class DisplayPosts extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -33,16 +33,13 @@ public class CreatePost extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String title = request.getParameter("title");
-        String username = request.getParameter("username");
-        String text = request.getParameter("text");
-        
         String path = System.getenv("OPENSHIFT_DATA_DIR") + System.getenv("file.seperator") +  "posts.txt";
-        CreatePostHandler ph = new CreatePostHandler(path);
-        ph.writePost(new Post(username, title, text, new Date()));
+
+        DisplayPostHandler dps = new DisplayPostHandler(path);
+        List<Post> posts = dps.getPosts();
         
-        response.sendRedirect("DisplayPosts");
-        
+        request.setAttribute("posts", posts);
+        request.getRequestDispatcher("displayPosts.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

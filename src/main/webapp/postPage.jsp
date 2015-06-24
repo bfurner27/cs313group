@@ -13,10 +13,13 @@
     </head>
     <body>
         <h1>Welcome ${username}</h1>
+        <a href="DisplayPosts">Go Directly to Post Page</a>
         <form action="CreatePost" method="POST">
+            <label>Title: </label><input type="text" name="title" /><br />
+            <input type="hidden" name="username" value="${username}" />
             <label>Post: </label><br />
-            <textarea type="text" name="user" /> </textarea><br />
-            <button type="submit">Log In</button> 
+            <textarea type="text" name="text" /> </textarea><br />
+            <button type="submit">Add Post</button> 
         </form>
         <a href="LogoutHandler" >Logout</a>
     </body>

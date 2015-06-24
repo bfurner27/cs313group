@@ -5,21 +5,41 @@
  */
 package LoginPostProject.model;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.FileAlreadyExistsException;
-import java.nio.file.Files;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Benjamin
  */
 public class CreatePostHandler {
-    String filename;
+    File filename;
     public CreatePostHandler(String filename) {
-        this.filename = filename;
+        this.filename = new File(filename);
+        
+        if (!this.filename.exists()) {
+            try {
+                this.filename.createNewFile();
+            } catch (IOException ex) {
+                System.out.println("ERROR: failed to create the new file!");
+            }
+        }
     }
     
-    public void writePost() {
-        
+    public void writePost(Post thePost) {
+        try {
+            BufferedWriter fout = new BufferedWriter(new FileWriter(filename, true));
+            String format = thePost.getUser() + "," + thePost.getTitle() + "," + thePost.getContent() + thePost.getDate();
+            fout.write(format);
+            fout.newLine();
+            fout.close();
+        } catch (IOException ex) {
+            System.out.println("ERROR: failed to write the file!");
+        }
     }
+    
 }
