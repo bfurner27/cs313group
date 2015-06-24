@@ -17,9 +17,9 @@
         <a href="postPage.jsp">Return to Post Page</a><br />
         <c:forEach var="post" items="${posts}" >
             <strong>${post.user}</strong><br />
-            <b>${post.title}<br /></b>
-            ${post.content}<br/>
-            ${post.date}<br/>
+            <b>${post.title}</b><br />
+            ${post.content}<br />
+            ${post.date}<br />
             <br />
         </c:forEach>
         
