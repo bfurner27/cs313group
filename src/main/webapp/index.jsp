@@ -32,5 +32,6 @@
             <input type="password" name="pass" /> <br />
             <button type="submit">Log In</button> 
         </form>
+        <a href="Login">Login to facebook</a>
     </body>
 </html>
