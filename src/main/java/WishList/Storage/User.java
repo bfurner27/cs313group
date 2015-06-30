@@ -10,7 +10,7 @@ package WishList.Storage;
  *
  * @author Schuyler
  */
-public class User {
+public class User implements Displayable {
     private String userId;
     private String name;
     private String photoURL;
@@ -44,5 +44,30 @@ public class User {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String getImageUrl() {
+        return photoURL;
+    }
+
+    @Override
+    public String getDisplayName() {
+        return name;
+    }
+
+    @Override
+    public String getDescription() {
+        return ""; // Cant thing of what to put here
+    }
+
+    @Override
+    public String getPrice() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int getId() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

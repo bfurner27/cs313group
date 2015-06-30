@@ -6,6 +6,7 @@
 
 package WishList.Controller;
 
+import WishList.Controller.Interfaces.WishListController;
 import WishList.Storage.WishList;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,15 +15,18 @@ import java.util.List;
  *
  * @author Schuyler
  */
-public class WishListController {
+public class ConcreteWishListController implements WishListController {
+    @Override
     public List<WishList> getWishLists(int userId){
         return new ArrayList<WishList>();
     }
            
+    @Override
     public boolean addWishList(WishList wishList){
         return true;
     }
     
+    @Override
     public boolean removeWishList(int wishListId){
         return true;
     }
