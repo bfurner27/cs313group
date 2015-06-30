@@ -49,7 +49,7 @@ public class UserHomePage extends HttpServlet {
 
             User displayUser = FacebookController.getInstance().requestUserInfo();
             
-
+            //response.getWriter().write(displayUser.getFriends().get(0).getName());
             
             request.getSession().setAttribute("user", displayUser);
             

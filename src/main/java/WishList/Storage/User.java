@@ -6,6 +6,8 @@
 
 package WishList.Storage;
 
+import java.util.List;
+
 /**
  *
  * @author Schuyler
@@ -14,6 +16,16 @@ public class User {
     private String userId;
     private String name;
     private String photoURL;
+    private List<Friend> friends;
+
+    public User(String userId, String name, String photoURL, List<Friend> friends) {
+        this.userId = userId;
+        this.name = name;
+        this.photoURL = photoURL;
+        this.friends = friends;
+    }
+    
+    
 
     public User(String name, String photoURL, String userId) {
         this.name = name;
@@ -45,4 +57,14 @@ public class User {
     public void setUserId(String userId) {
         this.userId = userId;
     }
+
+    public List<Friend> getFriends() {
+        return friends;
+    }
+
+    public void setFriends(List<Friend> friends) {
+        this.friends = friends;
+    }
+    
+    
 }

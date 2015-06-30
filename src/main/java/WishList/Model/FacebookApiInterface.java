@@ -7,12 +7,16 @@
 package WishList.Model;
 
 import WishList.Storage.User;
+import WishList.Storage.Friend;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Picture;
+import facebook4j.ResponseList;
 import facebook4j.auth.AccessToken;
 import static java.lang.System.out;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.http.HttpServlet;
@@ -55,10 +59,27 @@ public class FacebookApiInterface  extends HttpServlet {
             String userId = facebook.getId();
             facebook4j.User userInfo = facebook.getUser(userId);
             String photoURL = facebook.getPictureURL().toString();
-            out.println(photoURL);
+            
+            ResponseList<facebook4j.Friend> friends = facebook.getFriends(userId);
+            System.out.println("My list of friends: " + friends.getCount());
+            
+            String friendId = "";
+            String friendName = "";
+            String friendPictureURL = "";
+            
+            List<WishList.Storage.Friend> myFriends = new ArrayList<>();
+          
+            for (facebook4j.Friend friend : friends)
+            {
+                out.println("This is the list: " + friend.getName());
+                friendId = friends.get(0).getId();
+                friendName = friends.get(0).getName();
+                friendPictureURL = friends.get(0).getPicture().getURL().toString();
+                myFriends.add(new WishList.Storage.Friend(friendId, friendName, friendPictureURL));
+            }
             
             
-            user = new User(facebook.getName(), photoURL, userId);
+            user = new User(userId, facebook.getName(), photoURL, myFriends);
         } catch (FacebookException ex) {
             Logger.getLogger(FacebookApiInterface.class.getName()).log(Level.SEVERE, null, ex);
             throw new Exception("did not parse user");

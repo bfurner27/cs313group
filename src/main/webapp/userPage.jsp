@@ -17,6 +17,11 @@
         Here is the users information<br />
         Name: ${user.name} <br/>
         facebookId: ${user.userId} <br />
-        photo URL: ${user.photoURL} <br />
+        photo URL: ${user.photoURL} <br /> <br />
+        
+        
+        <c:forEach var="friend" items="${user.friends}">
+            ${friend.name} <br />
+        </c:forEach>
     </body>
 </html>
