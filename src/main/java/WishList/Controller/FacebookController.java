@@ -8,7 +8,6 @@ package WishList.Controller;
 import facebook4j.Facebook;
 import WishList.Model.FacebookApiInterface;
 import WishList.Storage.User;
-import facebook4j.auth.AccessToken;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
