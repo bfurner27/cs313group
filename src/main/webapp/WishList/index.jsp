@@ -45,9 +45,8 @@
     if (response.status === 'connected') {
       // Logged into your app and Facebook.
       var user = response.authResponse.userID;
-            document.getElementById('status').innerHTML =
-        'Thanks for logging in user id: ' + user + '!';
-      testAPI();
+      
+      testAPI(user);
 
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
@@ -108,12 +107,12 @@
 
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-  function testAPI() {
+  function testAPI(user) {
     console.log('Welcome!  Fetching your information.... ');
     FB.api('/me', function(response) {
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.authResponse.userID + '!';
+        'Thanks for logging in, ' +response.name + '('+ user + ')' + '!';
     });
   }
 </script>
@@ -202,7 +201,33 @@
               </li>
             </ul>
             </div>
-            <div class="col-md-6"></div>
+            
+            <div class="col-md-5">
+                <div id="espace">                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
+                </div>
+            <ul class="media-list">
+              <li class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">List #1<button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                    </button></h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+              </li>
+            </ul>
+                            <ul class="media-list">
+              <li class="media">
+                <div class="media-body">
+                  <h4 class="media-heading">List #2<button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                    </button></h4>
+                  Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis.
+                </div>
+              </li>
+            </ul>
+            </div>
           </div>
       </div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
