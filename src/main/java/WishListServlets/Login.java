@@ -7,7 +7,11 @@ package WishListServlets;
 
 import facebook4j.Facebook; 
 import facebook4j.FacebookFactory;
+import facebook4j.conf.ConfigurationBuilder;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,8 +35,57 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         Facebook facebook;
-        facebook = new FacebookFactory().getInstance();
+        FacebookFactory ff = new FacebookFactory();
+        String propertiesPath = System.getenv("OPENSHIFT_DATA_DIR");
+        
+        if (propertiesPath != null) {
+            propertiesPath = propertiesPath + "facebook4j.properties";
+            
+            //found code from http://www.avajava.com/tutorials/lessons/how-do-i-read-a-properties-file.html
+            
+            // read in the file
+            File propertiesFile = new File(propertiesPath);
+            FileInputStream inputStream = new FileInputStream(propertiesFile);
+            
+            // load the file into the properties object
+            Properties properties = new Properties();
+            properties.load(inputStream);
+            inputStream.close();
+            
+            // get the properties from the properties file
+            String debugString = properties.getProperty("debug");
+            boolean debug = false;
+            if (debugString.equals("true")) {
+                debug = true;
+            }
+            
+            String jsonStoreEnabledString = properties.getProperty("jsonStoreEnabled");
+            boolean jsonStoreEnabled = false;
+            if (jsonStoreEnabledString.equals("true")) {
+                jsonStoreEnabled = true;
+            }
+            
+            String oAuthAppId = properties.getProperty("oath.appId");
+            String oAuthAppSecret = properties.getProperty("oath.appSecret");
+            String oAuthPermissions = properties.getProperty("oath.permissions");
+            
+            //build a configuration builder
+            // found code to help at http://facebook4j.org/en/configuration.html
+            ConfigurationBuilder cb = new ConfigurationBuilder();
+            cb.setDebugEnabled(debug);
+            cb.setJSONStoreEnabled(jsonStoreEnabled);
+            cb.setOAuthAppId(oAuthAppId);
+            cb.setOAuthAppSecret(oAuthAppSecret);
+            cb.setOAuthPermissions(oAuthPermissions);
+            
+            ff = new FacebookFactory(cb.build());
+            
+        }
+        
+        // get the new facebook instance
+        facebook = ff.getInstance();
 
         request.getSession().setAttribute("facebook", facebook);
 
@@ -41,9 +94,10 @@ public class Login extends HttpServlet {
 
         String callBackUrl = requestUrl.substring(0, lastSlashIndex) + "/UserHomePage";
 
+
+        
         String facebookUrl = facebook.getOAuthAuthorizationURL(callBackUrl);
         
-        response.getWriter().write(facebookUrl);
 
         response.sendRedirect(facebookUrl); 
     }
