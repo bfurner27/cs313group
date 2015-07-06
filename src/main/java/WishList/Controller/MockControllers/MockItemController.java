@@ -51,7 +51,7 @@ public class MockItemController implements ItemController {
                 items.add(new Item(new URL("http://ecx.images-amazon.com/images/I/51mWx8w7goL._PI_PJStripe-HD-Only-500px,TopLeft,0,0_AA160_.jpg"), new URL("http://www.amazon.com/Harry-Potter-Sorcerers-Daniel-Radcliffe/dp/B002DQLGHU/ref=sr_1_1?ie=UTF8&qid=1435701579&sr=8-1&keywords=harry"), "Harry Potter", "Harry Potter", (float) 2.30, 6, 2));
                 items.add(new Item(new URL("http://ecx.images-amazon.com/images/I/313HPN793PL._AA160_.jpg"), new URL("http://www.amazon.com/Stanley-Proto-J1200GASD-Combination-Wrench/dp/B000LVI5OG/ref=sr_1_1?ie=UTF8&qid=1435701643&sr=8-1&keywords=gasd"), "A bunch of tools", "Stanley Proto J1200GASD 10 Piece 12 Point Combination", (float) 172.99, 7, 2));
             }
-            return new ArrayList<Item>();
+            return items;
         } catch (MalformedURLException ex) {
             Logger.getLogger(MockItemController.class.getName()).log(Level.SEVERE, null, ex);
             return new ArrayList<Item>();

@@ -29,6 +29,11 @@ h1 {
     margin-bottom: 20px;
 }
 
+#servletLoaded {
+    
+   visibility: hidden;
+}
+
 .media-list {
     
     border: 1px solid ;
