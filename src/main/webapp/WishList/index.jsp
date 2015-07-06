@@ -36,6 +36,7 @@
       <script>
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
+
     console.log('statusChangeCallback');
     console.log(response);
     // The response object is returned with a status field that lets the
@@ -46,8 +47,10 @@
       // Logged into your app and Facebook.
       var user = response.authResponse.userID;
       
-      testAPI(user);
+                
+        testAPI(user);
 
+    
     } else if (response.status === 'not_authorized') {
       // The person is logged into Facebook, but not your app.
       document.getElementById('status').innerHTML = 'Please log ' +
@@ -113,6 +116,10 @@
       console.log('Successful login for: ' + response.name);
       document.getElementById('status').innerHTML =
         'Thanks for logging in, ' +response.name + '('+ user + ')' + '!';
+
+
+        document.location.href="../TestingServlet?id=" + user;
+    
     });
   }
 </script>
