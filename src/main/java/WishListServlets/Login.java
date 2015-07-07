@@ -36,6 +36,9 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        //to work with local host I need the following info in the app setting on facebook
+        //http://localhost:8080/
+        
         Facebook facebook = null;
         FacebookFactory ff;
         String propertiesPath = System.getenv("OPENSHIFT_DATA_DIR");
