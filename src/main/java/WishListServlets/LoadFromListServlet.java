@@ -5,6 +5,8 @@
  */
 package WishListServlets;
 
+import WishList.Controller.Interfaces.ItemController;
+import WishList.Controller.Interfaces.ItemControllerFactory;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Controller.Interfaces.WishListControllerFactory;
 import WishList.Storage.Item;
@@ -36,10 +38,23 @@ public class LoadFromListServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           WishListController wishListController = new WishListControllerFactory().getWishListController();
-            List<WishList> items = wishListController.getWishLists(1);
+
+            
+            String id = request.getParameter("id");
+              ItemController itemController = new ItemControllerFactory().getItemController();
+     
+              int id2 = Integer.parseInt(id);
+            List<Item> items;
+        items = itemController.getItems(id2);
             
             request.setAttribute("items", items);
+            
+            WishListController wishListController = new WishListControllerFactory().getWishListController();
+            List<WishList> items2 = wishListController.getWishLists(1);
+            
+            request.setAttribute("items2", items2);
+            
+            request.getRequestDispatcher("WishList/index_logged.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
