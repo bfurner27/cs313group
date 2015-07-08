@@ -72,9 +72,9 @@ public class FacebookApiInterface  extends HttpServlet {
             for (facebook4j.Friend friend : friends)
             {
                 out.println("This is the list: " + friend.getName());
-                friendId = friends.get(0).getId();
-                friendName = friends.get(0).getName();
-                friendPictureURL = friends.get(0).getPicture().getURL().toString();
+                friendId = friend.getId();
+                friendName = friend.getName();
+                friendPictureURL = facebook.getPictureURL(friendId).toString();
                 myFriends.add(new WishList.Storage.Friend(friendId, friendName, friendPictureURL));
             }
             
@@ -82,7 +82,8 @@ public class FacebookApiInterface  extends HttpServlet {
             user = new User(userId, facebook.getName(), photoURL, myFriends);
         } catch (FacebookException ex) {
             Logger.getLogger(FacebookApiInterface.class.getName()).log(Level.SEVERE, null, ex);
-            throw new Exception("did not parse user");
+            //throw new Exception("did not parse user");
+            System.out.println(ex.toString());
         }
        
         

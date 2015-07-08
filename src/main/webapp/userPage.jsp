@@ -21,7 +21,7 @@
         
         
         <c:forEach var="friend" items="${user.friends}">
-            ${friend.name} <br />
+            ${friend.name} ${friend.pictureURL}<br />
         </c:forEach>
     </body>
 </html>

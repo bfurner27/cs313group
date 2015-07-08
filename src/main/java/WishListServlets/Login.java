@@ -36,8 +36,11 @@ public class Login extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        Facebook facebook;
-        FacebookFactory ff = new FacebookFactory();
+        //to work with local host I need the following info in the app setting on facebook
+        //http://localhost:8080/
+        
+        Facebook facebook = null;
+        FacebookFactory ff;
         String propertiesPath = System.getenv("OPENSHIFT_DATA_DIR");
         
         if (propertiesPath != null) {
@@ -67,9 +70,9 @@ public class Login extends HttpServlet {
                 jsonStoreEnabled = true;
             }
             
-            String oAuthAppId = properties.getProperty("oath.appId");
-            String oAuthAppSecret = properties.getProperty("oath.appSecret");
-            String oAuthPermissions = properties.getProperty("oath.permissions");
+            String oAuthAppId = properties.getProperty("oauth.appId");
+            String oAuthAppSecret = properties.getProperty("oauth.appSecret");
+            String oAuthPermissions = properties.getProperty("oauth.permissions");
             
             //build a configuration builder
             // found code to help at http://facebook4j.org/en/configuration.html
@@ -82,10 +85,59 @@ public class Login extends HttpServlet {
             
             ff = new FacebookFactory(cb.build());
             
+        } else {
+            //found code from http://www.avajava.com/tutorials/lessons/how-do-i-read-a-properties-file.html
+            
+            // read in the file
+            propertiesPath = "C:\\Users\\Benjamin\\Documents\\NetBeansProjects\\PostProject\\src\\main\\java\\facebook4j.properties";
+            File propertiesFile = new File(propertiesPath);
+            Properties properties;
+            // load the file into the properties object
+            try (FileInputStream inputStream = new FileInputStream(propertiesFile)) {
+                // load the file into the properties object
+                properties = new Properties();
+                properties.load(inputStream);
+                
+                inputStream.close();
+            }
+            
+            
+            // get the properties from the properties file
+            String debugString = properties.getProperty("debug");
+            boolean debug = false;
+            if (debugString.equals("true")) {
+                debug = true;
+            }
+            
+            
+            
+            String jsonStoreEnabledString = properties.getProperty("jsonStoreEnabled");
+            boolean jsonStoreEnabled = false;
+            if (jsonStoreEnabledString.equals("true")) {
+                jsonStoreEnabled = true;
+            }
+            
+            String oAuthAppId = properties.getProperty("oauth.appId");
+            String oAuthAppSecret = properties.getProperty("oauth.appSecret");
+            String oAuthPermissions = properties.getProperty("oauth.permissions");
+            
+            //build a configuration builder
+            // found code to help at http://facebook4j.org/en/configuration.html
+            ConfigurationBuilder cb = new ConfigurationBuilder();
+            cb.setDebugEnabled(debug);
+            cb.setJSONStoreEnabled(jsonStoreEnabled);
+            cb.setOAuthAppId(oAuthAppId);
+            cb.setOAuthAppSecret(oAuthAppSecret);
+            cb.setOAuthPermissions(oAuthPermissions);
+            
+            
+            
+            ff = new FacebookFactory(cb.build());
         }
         
         // get the new facebook instance
         facebook = ff.getInstance();
+        
 
         request.getSession().setAttribute("facebook", facebook);
 
