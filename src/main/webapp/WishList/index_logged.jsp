@@ -157,11 +157,11 @@
               <li class="media">
                 <div class="media-left media-middle">
                   <a href="#">
-                    <img class="media-object" src="${item.getImageUrl()}" alt="...">
+                    <img width="64" height="64" class="media-object" src="${item.getImageUrl()}" alt="...">
                   </a>
                 </div>
                 <div class="media-body">
-                  <h4 class="media-heading">${item.getTitle()}<button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                    <h4 class="media-heading"><a href="#">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
                   </h4>
@@ -182,7 +182,7 @@
             <ul class="media-list">
               <li class="media">
                 <div class="media-body">
-                    <h4 class="media-heading">${item.getDisplayName()}<button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                    <h4 class="media-heading"><a href="LoadFromListServlet?id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button></h4>
                   ${item.getDescription()}
