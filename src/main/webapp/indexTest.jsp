@@ -12,6 +12,16 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=482401615251513";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
         <h1>Team Login</h1>
         <%
             if (session.getAttribute("failed") != null)
@@ -25,13 +35,9 @@
             
             
         %>
-        <form action="LoginHandler" method="POST">
-            <label>Username: </label><br />
-            <input type="text" name="user" /> <br />
-            <label>Password: </label> <br />
-            <input type="password" name="pass" /> <br />
-            <button type="submit">Log In</button> 
-        </form>
+        <!-- add the href to the actual page that we are looking at -->
+        <div class="fb-share-button" data-href="#" 
+            data-layout="button_count"></div>
         <a href="Login">Login to facebook</a>
     </body>
 </html>

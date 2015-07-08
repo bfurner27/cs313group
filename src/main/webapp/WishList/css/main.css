@@ -56,3 +56,7 @@ h1 {
     top: 8px;
     
 }
+
+.centerHeader {
+    text-align: center;
+}

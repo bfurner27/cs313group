@@ -14,6 +14,7 @@ public class WishList implements Displayable {
     private int id;
     private String name;
     private String description;
+    private boolean isPublic;
     private String imageUrl;
 
     public WishList(int id, String name, String description) {
@@ -26,6 +27,33 @@ public class WishList implements Displayable {
         this.description = description;
         this.imageUrl = imageUrl;
     }
+
+    public WishList(String name, String description, boolean isPublic, String imageUrl) {
+        this.name = name;
+        this.description = description;
+        this.isPublic = isPublic;
+        this.imageUrl = imageUrl;
+    }
+    
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public boolean isIsPublic() {
+        return isPublic;
+    }
+
+    public void setIsPublic(boolean isPublic) {
+        this.isPublic = isPublic;
+    }
+    
+    
     
     @Override
     public String getImageUrl() {

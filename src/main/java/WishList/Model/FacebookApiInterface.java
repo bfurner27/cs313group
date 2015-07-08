@@ -14,6 +14,7 @@ import facebook4j.Picture;
 import facebook4j.ResponseList;
 import facebook4j.auth.AccessToken;
 import static java.lang.System.out;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -88,5 +89,20 @@ public class FacebookApiInterface  extends HttpServlet {
        
         
         return user;
+    }
+    
+    /**
+     * This will post the wishlist url to facebook along with a message that the 
+     * user specifies.
+     * @param wishListURL - this is the the url to the wishlist
+     * @param message - this is the message that the user wants to post along with the wishlist.
+     */
+    public void postWishlistURL(String wishListURL, String message) {
+        try {
+            facebook.postLink(new URL(wishListURL), message);
+            
+        } catch (FacebookException | MalformedURLException ex) {
+            Logger.getLogger(FacebookApiInterface.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }
