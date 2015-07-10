@@ -7,6 +7,7 @@ package WishListServlets;
 
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Controller.Interfaces.WishListControllerFactory;
+import WishList.Storage.Person;
 import WishList.Storage.WishList;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,8 +40,15 @@ public class CreateNewList extends HttpServlet {
         //get variables from the post
         String name = request.getParameter("listName");
         String description = request.getParameter("description");
-        String owner = request.getParameter("owner");
+        
+        //gets the facebook id of the individual so that the list will be associated with
+        //that individual.
+        Person p = (Person)request.getSession().getAttribute("user");
+        String owner = p.getUserId();
+        
         String pictureURL = request.getParameter("pictureURL");
+        
+        // finds if the value is true
         boolean isPublic = true;
         if (request.getParameter("permission").equals("false"))
         {
