@@ -18,12 +18,12 @@ import org.eclipse.persistence.jpa.JpaEntityManager;
 import org.eclipse.persistence.queries.ReadAllQuery;
 
 /**
- *
+ * More information can be found here: https://wiki.eclipse.org/EclipseLink/Examples/JPA
  * @author Schuyler
  */
 public class DatabaseAccessor {
     public List<Item> getItems(int wishListId) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
         List<Item> result = null;
         
@@ -44,7 +44,7 @@ public class DatabaseAccessor {
     
     public boolean addItem(Item item){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
         
         try{
@@ -63,7 +63,7 @@ public class DatabaseAccessor {
     
     public boolean removeItem(int itemId){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
 
         try{
@@ -83,7 +83,7 @@ public class DatabaseAccessor {
     
     public boolean removeItem(Item item){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
 
         try{
@@ -101,7 +101,7 @@ public class DatabaseAccessor {
     }
     
     public List<WishList> getWishLists(String owner){
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         List<WishList> result = null;
         try {            
             EntityManager em = emf.createEntityManager();
@@ -121,7 +121,7 @@ public class DatabaseAccessor {
            
     public boolean addWishList(WishList wishList){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
         
         try{
@@ -139,7 +139,7 @@ public class DatabaseAccessor {
     
     public boolean removeWishList(int wishListId){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
 
         try{
@@ -159,7 +159,7 @@ public class DatabaseAccessor {
     
     public boolean removeWishList(WishList wishList){
         boolean success = true;
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlistNew");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
         EntityManager em = emf.createEntityManager();
 
         try{
