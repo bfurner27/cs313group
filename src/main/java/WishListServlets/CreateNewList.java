@@ -35,6 +35,8 @@ public class CreateNewList extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        //get variables from the post
         String name = request.getParameter("listName");
         String description = request.getParameter("description");
         String owner = request.getParameter("owner");
@@ -45,11 +47,12 @@ public class CreateNewList extends HttpServlet {
             isPublic = false;
         }
         
-        //check if they supplied a url with their list
+        //check if they provided a url or they left it blank
         if (pictureURL.equals("")) {
             pictureURL = randomURLGenerator();
         }
         
+        // This will add the wishlist so that it inserts the list into the database
         WishListControllerFactory wLCF = new WishListControllerFactory();
         WishListController wlc = wLCF.getWishListController();
         wlc.addWishList(new WishList(name, description, owner, isPublic, pictureURL));
@@ -58,13 +61,18 @@ public class CreateNewList extends HttpServlet {
         
     }
     
+    
+    /**
+     * This will return a url that can be put in place if the user did not provide a URL
+     * @return the url
+     */
     public String randomURLGenerator() {
         String rndURL = "";
         Random rnd = new Random();
         switch(rnd.nextInt(NUM_URLS))
         {
             case 0:
-                rndURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png";
+                rndURL = "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg";
                 break;
             case 1:
                 rndURL = "https://upload.wikimedia.org/wikipedia/commons/9/94/Abstract_blue_background7.jpg";
@@ -73,7 +81,8 @@ public class CreateNewList extends HttpServlet {
                 rndURL = "https://upload.wikimedia.org/wikipedia/commons/c/c5/Background_green_leave_macro.jpg";
                 break;
             default:
-                rndURL = "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange-Fruit-Pieces.jpg";
+                rndURL = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Red_flag.svg/2000px-Red_flag.svg.png";
+                break;
         }
         
         return rndURL;

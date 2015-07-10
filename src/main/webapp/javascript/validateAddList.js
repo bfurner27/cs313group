@@ -22,13 +22,17 @@ function validateName() {
     var nameIsValid = true;
     var name = $('#listNameId').val();
     
+    //check if there is user input
     if (name === "") {
         nameIsValid = false;
+        
+        //display an error so the user knows where they need to fix
         $('#listNameId').css("border-color", "red");
         $('#listNameId').attr("placeholder", "(required) ex: The Most Awesome List Ever!");
     }
     else 
     {
+        // return the block to how it was before the error
         $('#listNameId').css("border-color", "LightGray");
     }
     
