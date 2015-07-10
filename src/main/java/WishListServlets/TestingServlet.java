@@ -7,15 +7,11 @@ package WishListServlets;
 
 import WishList.Controller.Interfaces.ItemController;
 import WishList.Controller.Interfaces.ItemControllerFactory;
-import WishList.Controller.Interfaces.UserController;
-import WishList.Controller.Interfaces.UserControllerFactory;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Controller.Interfaces.WishListControllerFactory;
-import WishList.Controller.MockControllers.MockUserController;
 import WishList.Storage.Item;
 import WishList.Storage.WishList;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -64,7 +60,7 @@ public class TestingServlet extends HttpServlet {
             request.setAttribute("items", items);
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
-            List<WishList> items2 = wishListController.getWishLists(1);
+            List<WishList> items2 = wishListController.getWishLists("test");
             
             request.setAttribute("items2", items2);
             

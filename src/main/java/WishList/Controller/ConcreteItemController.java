@@ -7,6 +7,7 @@
 package WishList.Controller;
 
 import WishList.Controller.Interfaces.ItemController;
+import WishList.Model.DatabaseAccessor;
 import WishList.Storage.Item;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,24 +17,29 @@ import java.util.List;
  * @author Schuyler
  */
 public class ConcreteItemController implements ItemController {
+    private DatabaseAccessor dba;
+
+    public ConcreteItemController() {
+        this.dba = new DatabaseAccessor();
+    }
+    
     @Override
     public boolean addItem(Item item){
-        return true;
+        return dba.addItem(item);
     }
     
     @Override
     public boolean removeItem(int itemId){
-        return true;
+        return dba.removeItem(itemId);
     }
     
     @Override
     public List<Item> getItems(int listId){
-        return new ArrayList<Item>();
+        return dba.getItems(listId);
     }
     
     @Override
-    public boolean updateItem(Item updated)
-    {
+    public boolean updateItem(Item updated){
         return true;
     }
 }

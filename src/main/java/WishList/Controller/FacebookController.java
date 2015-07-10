@@ -7,7 +7,7 @@ package WishList.Controller;
 
 import facebook4j.Facebook;
 import WishList.Model.FacebookApiInterface;
-import WishList.Storage.User;
+import WishList.Storage.Person;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -32,8 +32,8 @@ public class FacebookController {
         facebookAPI = new FacebookApiInterface(facebook, oathCode);
     }
     
-    public User requestUserInfo() {
-        User user = null;
+    public Person requestUserInfo() {
+        Person user = null;
         try {
             user = facebookAPI.requestUserInfo();
         } catch (Exception ex) {

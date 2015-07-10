@@ -6,36 +6,36 @@
 
 package WishList.Storage;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  *
  * @author Schuyler
  */
-public class WishList implements Displayable {
+@Entity
+public class WishList implements Displayable, Serializable {
+    @Id
+    @GeneratedValue
     private int id;
+    private String owner;
     private String name;
     private String description;
-    private boolean isPublic;
     private String imageUrl;
-
-    public WishList(int id, String name, String description) {
-        this(id, name, description, "http://www.icons101.com/icon_png/size_256/id_69455/List.png");
-    }
-
-    public WishList(int id, String name, String description, String imageUrl) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.imageUrl = imageUrl;
-    }
-
-    public WishList(String name, String description, boolean isPublic, String imageUrl) {
-        this.name = name;
-        this.description = description;
-        this.isPublic = isPublic;
-        this.imageUrl = imageUrl;
-    }
+    private Boolean is_public;
     
-    
+    public WishList() {
+    }
+
+    public String getOwner() {
+        return owner;
+    }
+
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
     public String getName() {
         return name;
@@ -45,15 +45,34 @@ public class WishList implements Displayable {
         this.name = name;
     }
 
-    public boolean isIsPublic() {
-        return isPublic;
+    public Boolean isIs_public() {
+        return is_public;
     }
 
-    public void setIsPublic(boolean isPublic) {
-        this.isPublic = isPublic;
+    public void setIs_public(Boolean is_public) {
+        this.is_public = is_public;
+    }
+
+    public WishList(int id, String name, String description, String owner, Boolean is_public) {
+        this(id, name, description, owner, is_public, "http://www.icons101.com/icon_png/size_256/id_69455/List.png");
+    }
+
+    public WishList(int id, String name, String description, String owner, Boolean is_public, String imageUrl) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.owner = owner;
+        
     }
     
-    
+    public WishList(String name, String description, String owner, Boolean is_public, String imageUrl) {
+        this.name = name;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.owner = owner;
+        
+    }
     
     @Override
     public String getImageUrl() {

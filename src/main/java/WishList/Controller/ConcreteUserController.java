@@ -7,7 +7,7 @@
 package WishList.Controller;
 
 import WishList.Controller.Interfaces.UserController;
-import WishList.Storage.User;
+import WishList.Storage.Person;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,12 +27,12 @@ public class ConcreteUserController implements UserController {
     }
 
     @Override
-    public boolean addUser(User user){
+    public boolean addUser(Person user){
         return true;
     }
     
     @Override
-    public List<User> getFriends(int userId){
-        return new ArrayList<User>();
+    public List<Person> getFriends(int userId){
+        return new ArrayList<Person>();
     }
 }

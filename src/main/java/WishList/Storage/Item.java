@@ -6,21 +6,39 @@
 
 package WishList.Storage;
 
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  *
  * @author Schuyler
  */
-public class Item implements Displayable {
-    private URL imageUrl;
-    private URL url;
-    private String descrition;
-    private String title;
-    private float price;
+@Entity
+@Table(name = "item")
+public class Item implements Displayable, Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    private String picture_url;
+    private String url;
+    private String description;
+    private String name;
+    private float price;
+    @Column (name = "list_id") 
     private int listId;
+
+    public int getListId() {
+        return listId;
+    }
+
+    public void setListId(int listId) {
+        this.listId = listId;
+    }
     
     /**
      *
@@ -38,12 +56,12 @@ public class Item implements Displayable {
      * @param price
      * @param listId ID for the list that it belongs to
      */
-    public Item(URL imageUrl, URL url, String descrition, String title, 
+    public Item(String imageUrl, String url, String descrition, String title, 
             float price, int listId) {
-        this.imageUrl = imageUrl;
+        this.picture_url = imageUrl;
         this.url = url;
-        this.descrition = descrition;
-        this.title = title;
+        this.description = descrition;
+        this.name = title;
         this.price = price;
         this.listId = listId;
     }
@@ -58,12 +76,12 @@ public class Item implements Displayable {
      * @param id
      * @param listId
      */
-    public Item(URL imageUrl, URL url, String descrition, String title, 
+    public Item(String imageUrl, String url, String descrition, String title, 
             float price, int id, int listId) {
-        this.imageUrl = imageUrl;
+        this.picture_url = imageUrl;
         this.url = url;
-        this.descrition = descrition;
-        this.title = title;
+        this.description = descrition;
+        this.name = title;
         this.price = price;
         this.id = id;
         this.listId = listId;
@@ -76,7 +94,7 @@ public class Item implements Displayable {
      */
     @Override
     public String toString() {
-        return "<a href=\"" + url + "\">" + title + "</a>";
+        return "<a href=\"" + url + "\">" + name + "</a>";
     }
    
     /**
@@ -85,31 +103,22 @@ public class Item implements Displayable {
      */
     @Override
     public String getImageUrl() {
-        return imageUrl.toString();
+        return picture_url.toString();
     }
 
     /**
      *
      * @param imageUrl
      */
-    public void setImageUrl(URL imageUrl) {
-        this.imageUrl = imageUrl;
-    }
-    
-    /**
-     *
-     * @param imageUrl
-     * @throws MalformedURLException
-     */
-    public void setImageUrl(String imageUrl) throws MalformedURLException {
-            this.imageUrl = new URL(imageUrl);
+    public void setImageUrl(String imageUrl) {
+        this.picture_url = imageUrl;
     }
 
     /**
      *
      * @return
      */
-    public URL getUrl() {
+    public String getUrl() {
         return url;
     }
 
@@ -126,7 +135,7 @@ public class Item implements Displayable {
      *
      * @param url
      */
-    public void setUrl(URL url) {
+    public void setUrl(String url) {
         this.url = url;
     }
 
@@ -135,7 +144,7 @@ public class Item implements Displayable {
      * @return
      */
     public String getDescrition() {
-        return descrition;
+        return description;
     }
 
     /**
@@ -143,7 +152,7 @@ public class Item implements Displayable {
      * @param descrition
      */
     public void setDescrition(String descrition) {
-        this.descrition = descrition;
+        this.description = descrition;
     }
 
     /**
@@ -151,7 +160,7 @@ public class Item implements Displayable {
      * @return
      */
     public String getTitle() {
-        return title;
+        return name;
     }
 
     /**
@@ -159,7 +168,7 @@ public class Item implements Displayable {
      * @param title
      */
     public void setTitle(String title) {
-        this.title = title;
+        this.name = title;
     }
 
     /**
@@ -185,7 +194,7 @@ public class Item implements Displayable {
      */
     @Override
     public String getDisplayName() {
-        return title;
+        return name;
     }
 
     /**
@@ -194,6 +203,6 @@ public class Item implements Displayable {
      */
     @Override
     public String getDescription() {
-        return descrition;
+        return description;
     }
 }

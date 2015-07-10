@@ -14,7 +14,7 @@ import java.util.List;
  * @author Schuyler
  */
 public interface WishListController {
-    public List<WishList> getWishLists(int userId);
+    public List<WishList> getWishLists(String userId);
     public boolean addWishList(WishList wishList);
     public boolean removeWishList(int wishListId);
 }

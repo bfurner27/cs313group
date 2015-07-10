@@ -6,14 +6,9 @@
 package WishListServlets;
 
 import WishList.Controller.FacebookController;
-import WishList.Storage.User;
+import WishList.Storage.Person;
 import facebook4j.Facebook;
-import facebook4j.FacebookException;
-import facebook4j.auth.AccessToken;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +42,7 @@ public class UserHomePage extends HttpServlet {
             
             FacebookController.getInstance().setFacebookObject(facebook, oauthCode);
 
-            User displayUser = FacebookController.getInstance().requestUserInfo();
+            Person displayUser = FacebookController.getInstance().requestUserInfo();
             
             //response.getWriter().write(displayUser.getFriends().get(0).getName());
             

@@ -12,7 +12,6 @@ import WishList.Controller.Interfaces.WishListControllerFactory;
 import WishList.Storage.Item;
 import WishList.Storage.WishList;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -50,7 +49,7 @@ public class LoadFromListServlet extends HttpServlet {
             request.setAttribute("items", items);
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
-            List<WishList> items2 = wishListController.getWishLists(1);
+            List<WishList> items2 = wishListController.getWishLists("test");
             
             request.setAttribute("items2", items2);
             

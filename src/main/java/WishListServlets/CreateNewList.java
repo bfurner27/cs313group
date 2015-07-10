@@ -35,6 +35,7 @@ public class CreateNewList extends HttpServlet {
             throws ServletException, IOException {
         String name = request.getParameter("listName");
         String description = request.getParameter("description");
+        String owner = request.getParameter("owner");
         boolean isPublic = true;
         if (request.getParameter("permission").equals("false"))
         {
@@ -43,7 +44,7 @@ public class CreateNewList extends HttpServlet {
         
         WishListControllerFactory wLCF = new WishListControllerFactory();
         WishListController wlc = wLCF.getWishListController();
-        wlc.addWishList(new WishList(name, description, isPublic, "/url"));
+        wlc.addWishList(new WishList(name, description, owner, isPublic, "/url"));
         
         
         

@@ -6,7 +6,6 @@
 
 package WishList.Controller.MockControllers;
 
-import WishList.Controller.*;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Storage.WishList;
 import java.util.ArrayList;
@@ -18,10 +17,10 @@ import java.util.List;
  */
 public class MockWishListController implements WishListController {
     @Override
-    public List<WishList> getWishLists(int userId){
+    public List<WishList> getWishLists(String userId){
         List<WishList> wishes = new ArrayList<WishList>();
-        wishes.add(new WishList(1, "Fake list #1", "This is a fake list that is bigger than #2"));
-        wishes.add(new WishList(2, "Fake list #2", "This is a fake list that is smaller than #1"));
+        wishes.add(new WishList(1, "Fake list #1", "This is a fake list that is bigger than #2", "schuylerrs", true));
+        wishes.add(new WishList(2, "Fake list #2", "This is a fake list that is smaller than #1", "schuylerrs", true));
         return wishes;
     }
            

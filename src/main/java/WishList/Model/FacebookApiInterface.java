@@ -6,8 +6,8 @@
 
 package WishList.Model;
 
-import WishList.Storage.User;
 import WishList.Storage.Friend;
+import WishList.Storage.Person;
 import facebook4j.Facebook;
 import facebook4j.FacebookException;
 import facebook4j.Picture;
@@ -52,8 +52,8 @@ public class FacebookApiInterface  extends HttpServlet {
     }
     
     
-    public User requestUserInfo() throws Exception {
-        User user = null;
+    public Person requestUserInfo() throws Exception {
+        Person user = null;
         
         try {
             facebook.getOAuthAccessToken();
@@ -80,7 +80,7 @@ public class FacebookApiInterface  extends HttpServlet {
             }
             
             
-            user = new User(userId, facebook.getName(), photoURL, myFriends);
+            user = new Person(userId, facebook.getName(), photoURL, myFriends);
         } catch (FacebookException ex) {
             Logger.getLogger(FacebookApiInterface.class.getName()).log(Level.SEVERE, null, ex);
             //throw new Exception("did not parse user");

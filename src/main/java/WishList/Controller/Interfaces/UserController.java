@@ -6,7 +6,7 @@
 
 package WishList.Controller.Interfaces;
 
-import WishList.Storage.User;
+import WishList.Storage.Person;
 import java.util.List;
 
 /**
@@ -16,6 +16,6 @@ import java.util.List;
 public interface UserController {
     public boolean grantPermission(int userId, int friendId);
     public boolean revokePermission(int userId, int friendId);
-    public boolean addUser(User user);
-    public List<User> getFriends(int userId);
+    public boolean addUser(Person user);
+    public List<Person> getFriends(int userId);
 }
