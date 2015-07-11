@@ -6,6 +6,7 @@
 
 package WishList.Controller.Interfaces;
 
+import WishList.Controller.ConcreteUserController;
 import WishList.Controller.MockControllers.MockUserController;
 
 /**
@@ -14,6 +15,6 @@ import WishList.Controller.MockControllers.MockUserController;
  */
 public class UserControllerFactory {
     public UserController getUserController() {
-        return new MockUserController();
+        return new ConcreteUserController();
     }
 }

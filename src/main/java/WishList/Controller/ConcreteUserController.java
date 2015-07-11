@@ -33,6 +33,6 @@ public class ConcreteUserController implements UserController {
     
     @Override
     public List<Person> getFriends(int userId){
-        return new ArrayList<Person>();
+        return FacebookController.getInstance().requestUserInfo().getFriends();
     }
 }

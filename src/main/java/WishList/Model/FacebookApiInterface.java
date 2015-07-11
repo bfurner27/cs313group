@@ -68,7 +68,7 @@ public class FacebookApiInterface  extends HttpServlet {
             String friendName = "";
             String friendPictureURL = "";
             
-            List<WishList.Storage.Friend> myFriends = new ArrayList<>();
+            List<WishList.Storage.Person> myFriends = new ArrayList<>();
           
             for (facebook4j.Friend friend : friends)
             {
@@ -76,7 +76,7 @@ public class FacebookApiInterface  extends HttpServlet {
                 friendId = friend.getId();
                 friendName = friend.getName();
                 friendPictureURL = facebook.getPictureURL(friendId).toString();
-                myFriends.add(new WishList.Storage.Friend(friendId, friendName, friendPictureURL));
+                myFriends.add(new WishList.Storage.Person(friendName, friendPictureURL, friendId));
             }
             
             
