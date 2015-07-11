@@ -66,7 +66,8 @@ public class UserHomePage extends HttpServlet {
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
             List<WishList> items2 = wishListController.getWishLists(displayUser.getUserId());
-            
+            int initialListId = items2.get(0).getId();
+            request.setAttribute("initialListId", initialListId);
             request.setAttribute("items2", items2);
             
             request.getRequestDispatcher("WishList/index_logged.jsp").forward(request, response);

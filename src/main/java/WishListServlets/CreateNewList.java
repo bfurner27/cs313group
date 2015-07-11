@@ -5,10 +5,12 @@
  */
 package WishListServlets;
 
+import WishList.Controller.FacebookController;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Controller.Interfaces.WishListControllerFactory;
 import WishList.Storage.Person;
 import WishList.Storage.WishList;
+import facebook4j.Facebook;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Random;
@@ -43,8 +45,18 @@ public class CreateNewList extends HttpServlet {
         
         //gets the facebook id of the individual so that the list will be associated with
         //that individual.
-        Person p = (Person)request.getSession().getAttribute("user");
-        String owner = p.getUserId();
+        
+        Facebook facebook = (Facebook)request.getSession().getAttribute("facebook");
+
+         // get the oauth code from facebook so that we can make future requests to facebook
+            // from our actual class
+            String oauthCode = request.getParameter("code");
+            
+            
+            FacebookController.getInstance().setFacebookObject(facebook, oauthCode);
+
+            Person displayUser = FacebookController.getInstance().requestUserInfo();
+        String owner = displayUser.getUserId();
         
         String pictureURL = request.getParameter("pictureURL");
         
@@ -65,7 +77,7 @@ public class CreateNewList extends HttpServlet {
         WishListController wlc = wLCF.getWishListController();
         wlc.addWishList(new WishList(name, description, owner, isPublic, pictureURL));
         
-        response.sendRedirect("userPage.jsp");
+        response.sendRedirect("UserHomePage");
         
     }
     
