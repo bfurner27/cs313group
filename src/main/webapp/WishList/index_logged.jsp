@@ -88,7 +88,7 @@
             
             <div class="col-md-5">
                 
-                <div id="espace">                <button type="button" onclick="location.href='addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
+                <div id="espace">                <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                 </div>
