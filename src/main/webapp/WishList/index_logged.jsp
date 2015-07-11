@@ -52,7 +52,7 @@
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
-          <img src="${user.photoURL}">
+          <img  width="42" height="42" src="${user.photoURL}">
         </ul>
         </div>
         <div class="emptySpace"></div>
@@ -70,7 +70,7 @@
               <li class="media">
                 <div class="media-left media-middle">
                   <a href="#">
-                    <img width="32" height="32" class="media-object" src="${item.getImageUrl()}" alt="...">
+                    <img width="64" height="64" class="media-object" src="${item.getImageUrl()}" alt="...">
                   </a>
                 </div>
                 <div class="media-body">
