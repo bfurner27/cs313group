@@ -40,7 +40,8 @@ public class Friends extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-              UserController userController = new UserControllerFactory().getUserController();
+             
+            UserController userController = new UserControllerFactory().getUserController();
      
              Facebook facebook = (Facebook)request.getSession().getAttribute("facebook");
             
@@ -54,7 +55,9 @@ public class Friends extends HttpServlet {
             Person displayUser = FacebookController.getInstance().requestUserInfo();
             String userId = displayUser.getUserId();
             int id = Integer.parseInt(userId);
-            List<Person> friends = userController.getFriends(id);
+            
+          
+            List<Person> friends = userController.getFriends(3);
             request.setAttribute("user", displayUser);
             request.setAttribute("friends", friends);
             
