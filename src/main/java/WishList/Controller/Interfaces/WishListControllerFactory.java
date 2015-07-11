@@ -6,6 +6,7 @@
 
 package WishList.Controller.Interfaces;
 
+import WishList.Controller.ConcreteWishListController;
 import WishList.Controller.MockControllers.MockWishListController;
 
 /**

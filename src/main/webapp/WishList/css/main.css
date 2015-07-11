@@ -7,6 +7,19 @@ and open the template in the editor.
     Created on : Jun 29, 2015, 8:05:27 AM
     Author     : kim
 */
+#loginPageBody {
+    background-color: gainsboro;
+}
+#loginButton {
+    display:block;
+    margin: 0 auto;
+    margin-top: -10px;
+}
+
+iframe {
+    width: 124px;
+    text-align: center;
+}
 
 #wrapper {
     width: 70%;
@@ -17,16 +30,21 @@ and open the template in the editor.
     height: 15px;
 }
 .emptySpaceLittle {
+    height: 4px;
+}
+
+.emptySpaceLittle2 {
     height: 9px;
 }
 
 #espace{
    margin-bottom: 44px;
 }
-h1 {
+#logo {
     text-align: center;
-    font-size: 20px;
-    margin-bottom: 20px;
+font-family: 'Dosis', sans-serif;
+color:darkslategray;
+margin-top: 40px;
 }
 
 #servletLoaded {
@@ -44,12 +62,17 @@ h1 {
 
 #navBorder {
     
-       border-bottom: 1px solid ;
-       border-top: 1px solid ;
+ border: 1px solid;
+    padding: 4px;
+
     border-color: lightgray;
-    padding-bottom: 4px;
-    padding-top: 4px;
+background:whitesmoke;
     border-radius: 3px; 
+}
+
+#profilePhoto {
+    width:42px;
+        height: 42px;
 }
 
 .fb-login-button {
@@ -59,4 +82,26 @@ h1 {
 
 .centerHeader {
     text-align: center;
+}
+
+.nav nav-pills {
+    
+}
+
+.media-body {
+    background:whitesmoke;
+}
+
+.media {
+   background:whitesmoke;  
+}
+
+.media-list {
+    
+    background:whitesmoke;  
+}
+
+.media-object {
+    border-color: lightgray;
+    border: 1px solid black;
 }
