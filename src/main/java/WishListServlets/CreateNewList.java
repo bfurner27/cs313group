@@ -65,7 +65,7 @@ public class CreateNewList extends HttpServlet {
         WishListController wlc = wLCF.getWishListController();
         wlc.addWishList(new WishList(name, description, owner, isPublic, pictureURL));
         
-        response.sendRedirect("userPage.jsp");
+        response.sendRedirect("WishList/userPage.jsp");
         
     }
     

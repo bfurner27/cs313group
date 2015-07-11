@@ -32,7 +32,7 @@ public class RequestToCreateNewItem extends HttpServlet {
             throws ServletException, IOException {
         String listId = request.getParameter("listId");
         request.setAttribute("listId", listId);
-        request.getRequestDispatcher("addItem.jsp").forward(request, response);
+        request.getRequestDispatcher("WishList/addItem.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
