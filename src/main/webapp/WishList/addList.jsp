@@ -41,7 +41,7 @@
     <body>
         <div class="container">
         <h1>Create a New List</h1>
-        <form action="CreateNewList" method="POST" onsubmit="return validateAddList()">
+        <form action="../CreateNewList" method="POST" onsubmit="return validateAddList()">
             <!-- get name -->
             <div class="form-group">
             <label for="listNameId">*List Name</label>

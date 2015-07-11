@@ -39,5 +39,10 @@
         <div class="fb-share-button" data-href="#" 
             data-layout="button_count"></div>
         <a href="Login">Login to facebook</a>
+        
+        <form action="../RequestToCreateNewItem" method="GET" >
+            <input type="hidden" name="listId" value="3" />
+            <button type="submit" >Submit List</button>
+        </form>
     </body>
 </html>
