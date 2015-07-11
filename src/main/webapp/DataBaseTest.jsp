@@ -14,8 +14,8 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
-            String dbPort = System.getenv("$OPENSHIFT_MYSQL_DB_PORT");
+            String dbHost = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+            String dbPort = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
             
             pageContext.setAttribute("host", dbHost);
             pageContext.setAttribute("port", dbPort);
