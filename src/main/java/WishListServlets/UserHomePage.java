@@ -55,7 +55,7 @@ public class UserHomePage extends HttpServlet {
             
             request.getSession().setAttribute("user", displayUser);
             
-                ItemController itemController = new ItemControllerFactory().getItemController();
+            ItemController itemController = new ItemControllerFactory().getItemController();
      
  
             List<Item> items = itemController.getItems(1);
@@ -65,7 +65,7 @@ public class UserHomePage extends HttpServlet {
             request.setAttribute("items", items);
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
-            List<WishList> items2 = wishListController.getWishLists("test");
+            List<WishList> items2 = wishListController.getWishLists(displayUser.getUserId());
             
             request.setAttribute("items2", items2);
             

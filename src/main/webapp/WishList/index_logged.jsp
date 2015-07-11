@@ -20,7 +20,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>My Wishlist</title>
         
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -62,7 +62,7 @@
                 <button type="button" class="btn btn-primary">
                     Post to Facebook
                 </button>
-                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
+                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                         <div class="emptySpaceLittle"></div>
@@ -75,7 +75,8 @@
                   </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="#">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                    <h4 class="media-heading"><a href="#">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
+                                                                                        onclick="location.href='addList.jsp'">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
                   </h4>
