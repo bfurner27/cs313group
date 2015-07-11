@@ -42,9 +42,8 @@
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation"><a href="#">Home</a></li>
-          <li role="presentation"><a href="#">My List</a></li>
-          <li role="presentation" class="active"><a href="#">Friends</a></li>
+          <li role="presentation"><a href="../UserHomePage">My List</a></li>
+          <li role="presentation" class="active"><a href="#">Friend's List</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
@@ -53,7 +52,7 @@
         </div>
         <div class="emptySpace"></div>
         <div class="row">
-            <div class="col-md-7">
+            <div class="col-md-12">
                 <button type="button" class="btn btn-primary">
                     Post to Facebook
                 </button>
@@ -80,11 +79,6 @@
               </li>
             </ul>
             </c:forEach> 
-            </div>
-            
-            <div class="col-md-5">
-
-                
             </div>
           </div>
       </div>
