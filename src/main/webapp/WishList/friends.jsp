@@ -53,12 +53,6 @@
         <div class="emptySpace"></div>
         <div class="row">
             <div class="col-md-12">
-                <button type="button" class="btn btn-primary">
-                    Post to Facebook
-                </button>
-                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
                         <div class="emptySpaceLittle"></div>
             <c:forEach var="friend" items="${friends}"> 
             <ul class="media-list">
@@ -79,6 +73,9 @@
               </li>
             </ul>
             </c:forEach> 
+                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
             </div>
           </div>
       </div>
