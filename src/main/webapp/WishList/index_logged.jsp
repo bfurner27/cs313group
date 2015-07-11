@@ -64,7 +64,7 @@
                 <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
-                        <div class="emptySpaceLittle"></div>
+                        <div class="emptySpaceLittle2"></div>
             <c:forEach var="item" items="${items}"> 
             <ul class="media-list">
               <li class="media">
