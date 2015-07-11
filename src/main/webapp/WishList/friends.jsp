@@ -47,7 +47,7 @@
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
-          <img src="${user.photoURL}">
+          <img id="profilePhoto" src="${user.photoURL}">
         </ul>
         </div>
         <div class="emptySpace"></div>

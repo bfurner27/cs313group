@@ -70,6 +70,11 @@ background:whitesmoke;
     border-radius: 3px; 
 }
 
+#profilePhoto {
+    width:42;
+        height: 42;
+}
+
 .fb-login-button {
     top: 8px;
     
