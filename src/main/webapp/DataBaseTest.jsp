@@ -1,15 +1,9 @@
 <%-- 
-    Document   : DataBaseTest
-    Created on : Jul 11, 2015, 1:05:11 PM
+    Document   : LocalVariablesTest
+    Created on : Jul 11, 2015, 2:20:51 PM
     Author     : Schuyler
 --%>
 
-<%@page import="WishList.Controller.ConcreteWishListController"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@page import="WishList.Storage.WishList"%>
-<%@page import="java.util.List"%>
-<%@page import="WishList.Controller.Interfaces.WishListControllerFactory"%>
-<%@page import="WishList.Controller.Interfaces.WishListController"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,18 +14,15 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            WishListController wlc = new ConcreteWishListController();
-            List<WishList> lists = wlc.getWishLists("schuylerrs");
+            String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
+            String dbPort = System.getenv("$OPENSHIFT_MYSQL_DB_PORT");
             
-            for (WishList list : lists) {
-                System.out.println(list.getName());
-            }
-            
-            pageContext.setAttribute("lists", lists);
+            pageContext.setAttribute("host", dbHost);
+            pageContext.setAttribute("port", dbPort);
         %>
         
-        <c:forEach var="list" items="${lists}">
-            ${list.getName()} <br/>
-        </c:forEach>
+        ${host} <br/>
+        ${port} <br/>
     </body>
 </html>
+
