@@ -92,3 +92,8 @@ margin-top: 40px;
     
     background:whitesmoke;  
 }
+
+.media-object {
+    border-color: lightgray;
+    border: 1px solid black;
+}
