@@ -70,7 +70,7 @@
               <li class="media">
                 <div class="media-left media-middle">
                   <a href="#">
-                    <img width="64" height="64" class="media-object" src="${item.getImageUrl()}" alt="...">
+                    <img width="32" height="32" class="media-object" src="${item.getImageUrl()}" alt="...">
                   </a>
                 </div>
                 <div class="media-body">
