@@ -16,9 +16,9 @@ public class Person implements Displayable {
     private String userId;
     private String name;
     private String photoURL;
-    private List<Friend> friends;
+    private List<Person> friends;
 
-    public Person(String userId, String name, String photoURL, List<Friend> friends) {
+    public Person(String userId, String name, String photoURL, List<Person> friends) {
         this.userId = userId;
         this.name = name;
         this.photoURL = photoURL;
@@ -58,11 +58,11 @@ public class Person implements Displayable {
         this.userId = userId;
     }
 
-    public List<Friend> getFriends() {
+    public List<Person> getFriends() {
         return friends;
     }
 
-    public void setFriends(List<Friend> friends) {
+    public void setFriends(List<Person> friends) {
         this.friends = friends;
     }
     
