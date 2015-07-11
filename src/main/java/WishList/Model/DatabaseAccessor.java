@@ -49,8 +49,8 @@ public class DatabaseAccessor {
             }
             else {
                 DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/java";
-                USER = "testing";
-                PASS = "password";
+                USER = System.getEnv("OPENSHIFT_MYSQL_DB_USERNAME");
+                PASS = System.getEnv("OPENSHIFT_MYSQL_DB_PASSWORD");
             }
         }
     }
