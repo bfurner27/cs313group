@@ -61,7 +61,7 @@
                 <button type="button" class="btn btn-primary">
                     Post to Facebook
                 </button>
-                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
+                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${initialListId}'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                         <div class="emptySpaceLittle2"></div>
