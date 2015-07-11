@@ -2,6 +2,7 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * Forcing a build
  */
 
 package WishList.Model;
@@ -47,9 +48,9 @@ public class DatabaseAccessor {
                 PASS = "";
             }
             else {
-                DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/wishlist";
-                USER = "testing";
-                PASS = "password";
+                DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/java";
+                USER = System.getEnv("OPENSHIFT_MYSQL_DB_USERNAME");
+                PASS = System.getEnv("OPENSHIFT_MYSQL_DB_PASSWORD");
             }
         }
     }
