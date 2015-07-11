@@ -59,8 +59,8 @@
             <input type="text" class="form-control" name="description" id="descriptionId" /><br />
             
             <!-- get picture url of the item -->
-            <label for="pictureURLId">Picture URL</label>
-            <input type="text" class="form-control" name="pictureURL" id="pictureURLId" /><br />
+            <label for="pictureURLId" id="pictureURLLabelId" >Picture URL</label>
+            <input type="text" class="form-control" name="pictureURL" id="pictureURLId" onblur="displayPictureURL()"/><br />
             
             <!-- get sales link of the item -->
             <label for="salesLinkId">Link to Sales Site</label>

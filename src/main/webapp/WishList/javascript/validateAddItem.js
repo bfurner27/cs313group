@@ -68,4 +68,14 @@ function validatePrice() {
     return isValid;
 }
 
+function displayPictureURL() {
+    
+    var pictureURL = $('#pictureURLId').val();
+    if ($('#pictureURLId').val() !== "")
+    {
+        var insertHTML = "<img src=" + pictureURL + " width='50' height='50'/><br />";
+        $(insertHTML).insertBefore("#pictureURLLabelId");
+    }
+}
+
 
