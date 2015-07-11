@@ -48,7 +48,7 @@ public class DatabaseAccessor {
                 PASS = "";
             }
             else {
-                DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/wishlist";
+                DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/java";
                 USER = "testing";
                 PASS = "password";
             }
