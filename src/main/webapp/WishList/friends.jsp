@@ -69,7 +69,7 @@
                   </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="#">${friend.getName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
+                    <h4 class="media-heading"><a href="../ViewLists?friend_id=${friend.getId()}">${friend.getName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
                                                                                         onclick="location.href='addList.jsp'">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
