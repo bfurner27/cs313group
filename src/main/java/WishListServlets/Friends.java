@@ -53,8 +53,8 @@ public class Friends extends HttpServlet {
             FacebookController.getInstance().setFacebookObject(facebook, oauthCode);
 
             Person displayUser = FacebookController.getInstance().requestUserInfo();
-            String userId = displayUser.getUserId();
-            int id = Integer.parseInt(userId);
+          //  String userId = displayUser.getUserId();
+           
             
           
             List<Person> friends = userController.getFriends(3);
