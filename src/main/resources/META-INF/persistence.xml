@@ -8,7 +8,7 @@
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
-      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.2.61.130:3306/java?zeroDateTimeBehavior=convertToNull"/>
+      <property name="javax.persistence.jdbc.url" value="mysql://127.2.61.130:3306/java?zeroDateTimeBehavior=convertToNull"/>
       <property name="javax.persistence.jdbc.user" value="testing"/>
       <property name="javax.persistence.jdbc.password" value="password"/>
     </properties>
