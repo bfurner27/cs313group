@@ -4,6 +4,7 @@
     Author     : Schuyler
 --%>
 
+<%@page import="WishList.Controller.ConcreteWishListController"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page import="WishList.Storage.WishList"%>
 <%@page import="java.util.List"%>
@@ -19,7 +20,7 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            WishListController wlc = new WishListControllerFactory().getWishListController();
+            WishListController wlc = new ConcreteWishListController();
             List<WishList> lists = wlc.getWishLists("schuylerrs");
             
             for (WishList list : lists) {
