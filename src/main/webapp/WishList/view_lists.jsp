@@ -60,8 +60,7 @@
             
             <div class="col-md-12">
                 
-                <div id="espace">            
-                </div>
+                      <div class="emptySpaceLittle"></div>
                 <c:forEach var="item" items="${items2}"> 
             <ul class="media-list">
               <li class="media">
