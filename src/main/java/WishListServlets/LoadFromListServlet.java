@@ -39,7 +39,7 @@ public class LoadFromListServlet extends HttpServlet {
             throws ServletException, IOException {
 
             
-            String id = request.getParameter("id");
+            String id = request.getParameter("list_id");
               ItemController itemController = new ItemControllerFactory().getItemController();
      
               int id2 = Integer.parseInt(id);
@@ -53,7 +53,7 @@ public class LoadFromListServlet extends HttpServlet {
             
             request.setAttribute("items2", items2);
             
-            request.getRequestDispatcher("WishList/index_logged.jsp").forward(request, response);
+            request.getRequestDispatcher("WishList/view_items.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

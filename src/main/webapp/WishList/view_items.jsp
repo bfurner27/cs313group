@@ -1,3 +1,8 @@
+<%-- 
+    Document   : index
+    Created on : Jun 29, 2015, 7:52:12 AM
+    Author     : kim
+--%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -42,8 +47,8 @@
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation"><a href="../UserHomePage">My List</a></li>
-          <li role="presentation" class="active"><a href="#">Friends</a></li>
+          <li role="presentation" class="active"><a href="#">My List</a></li>
+          <li role="presentation"><a href="../Friends">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
@@ -60,26 +65,27 @@
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                         <div class="emptySpaceLittle"></div>
-            <c:forEach var="friend" items="${friends}"> 
+            <c:forEach var="item" items="${items}"> 
             <ul class="media-list">
               <li class="media">
                 <div class="media-left media-middle">
                   <a href="#">
-                    <img width="64" height="64" class="media-object" src="${friend.getPhotoURL()}" alt="...">
+                    <img width="64" height="64" class="media-object" src="${item.getImageUrl()}" alt="...">
                   </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="#">${friend.getName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
+                    <h4 class="media-heading"><a href="#">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
                                                                                         onclick="location.href='addList.jsp'">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
                   </h4>
-                  ${friend.getDescription()}
+                  ${item.getDescrition()}
                 </div>
               </li>
             </ul>
             </c:forEach> 
             </div>
+
           </div>
       </div>
 <div id="servletLoaded">false</div>
