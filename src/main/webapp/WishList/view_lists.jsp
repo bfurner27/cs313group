@@ -60,9 +60,7 @@
             
             <div class="col-md-12">
                 
-                <div id="espace">                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
+                <div id="espace">            
                 </div>
                 <c:forEach var="item" items="${items2}"> 
             <ul class="media-list">
@@ -76,7 +74,9 @@
               </li>
             </ul>
                 </c:forEach>
-                
+                 <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>
             </div>
           </div>
       </div>
