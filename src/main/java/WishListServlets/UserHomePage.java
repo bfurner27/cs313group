@@ -6,9 +6,16 @@
 package WishListServlets;
 
 import WishList.Controller.FacebookController;
+import WishList.Controller.Interfaces.ItemController;
+import WishList.Controller.Interfaces.ItemControllerFactory;
+import WishList.Controller.Interfaces.WishListController;
+import WishList.Controller.Interfaces.WishListControllerFactory;
+import WishList.Storage.Item;
 import WishList.Storage.Person;
+import WishList.Storage.WishList;
 import facebook4j.Facebook;
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +55,21 @@ public class UserHomePage extends HttpServlet {
             
             request.getSession().setAttribute("user", displayUser);
             
-            request.getRequestDispatcher("userPage.jsp").forward(request, response);
+                ItemController itemController = new ItemControllerFactory().getItemController();
+     
+ 
+            List<Item> items = itemController.getItems(1);
+            
+
+
+            request.setAttribute("items", items);
+            
+            WishListController wishListController = new WishListControllerFactory().getWishListController();
+            List<WishList> items2 = wishListController.getWishLists("test");
+            
+            request.setAttribute("items2", items2);
+            
+            request.getRequestDispatcher("WishList/index_logged.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

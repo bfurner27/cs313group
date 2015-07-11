@@ -36,8 +36,9 @@
             
         %>
         <!-- add the href to the actual page that we are looking at -->
+        <a href="Login"><img src="images/FacebookButton.png"></a>
+        <br />
         <div class="fb-share-button" data-href="#" 
             data-layout="button_count"></div>
-        <a href="Login">Login to facebook</a>
     </body>
 </html>
