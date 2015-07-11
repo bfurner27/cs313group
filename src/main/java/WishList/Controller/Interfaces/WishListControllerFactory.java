@@ -15,6 +15,6 @@ import WishList.Controller.MockControllers.MockWishListController;
  */
 public class WishListControllerFactory {
     public WishListController getWishListController() {
-        return new ConcreteWishListController();
+        return new MockWishListController();
     }
 }
