@@ -52,7 +52,7 @@
           <li role="presentation"><a href="#">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
-          Welcome, ${sessionScope.id}!
+          Welcome, ${user.name}!
         </ul>
         </div>
         <div class="emptySpace"></div>

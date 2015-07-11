@@ -32,7 +32,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-    <body>
+    <body id="loginPageBody">
         <div id="fb-root"></div>
         <script>
             (function(d, s, id) {
@@ -43,7 +43,7 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <h1>My Wishlist</h1>
+        <h1 id="logo">My Wishlist</h1>
 
         <!-- add the href to the actual page that we are looking at -->
         <a href="../Login"><img id="loginButton" src="../images/FacebookButton.png"></a>
