@@ -21,6 +21,12 @@
         <%
             WishListController wlc = new WishListControllerFactory().getWishListController();
             List<WishList> lists = wlc.getWishLists("schuylerrs");
+            
+            for (WishList list : lists) {
+                System.out.println(list.getName());
+            }
+            
+            pageContext.setAttribute("lists", lists);
         %>
         
         <c:forEach var="list" items="${lists}">
