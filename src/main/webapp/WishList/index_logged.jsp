@@ -52,7 +52,8 @@
           <li role="presentation"><a href="#">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
-          Welcome, ${user.name}!
+          Welcome ${user.name}!
+          <img src="${user.photoURL}">
         </ul>
         </div>
         <div class="emptySpace"></div>
