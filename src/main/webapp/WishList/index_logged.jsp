@@ -75,7 +75,7 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
-                                                                                        onclick="location.href='addList.jsp'">
+                                                                                        >
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
                   </h4>
@@ -88,7 +88,7 @@
             
             <div class="col-md-5">
                 
-                <div id="espace">                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
+                <div id="espace">                <button type="button" onclick="location.href='addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                 </div>
