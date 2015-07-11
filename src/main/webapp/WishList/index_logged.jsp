@@ -49,7 +49,7 @@
         <ul class="nav nav-pills">
           <li role="presentation" class="active"><a href="#">Home</a></li>
           <li role="presentation"><a href="#">My List</a></li>
-          <li role="presentation"><a href="#">Friends</a></li>
+          <li role="presentation"><a href="friends.jsp">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!

@@ -79,7 +79,7 @@ public class Person implements Displayable {
 
     @Override
     public String getDescription() {
-        return ""; // Cant thing of what to put here
+        return "Hi, I'm your friend!"; // Cant thing of what to put here
     }
 
     @Override
