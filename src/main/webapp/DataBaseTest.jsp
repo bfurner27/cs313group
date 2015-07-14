@@ -27,7 +27,7 @@
             WishListController wlc = new ConcreteWishListController();
             List<WishList> lists = wlc.getWishLists("schuylerrs");
             
-                String DB_URL = "mysql://" 
+                String DB_URL = "jdbc:mysql://" 
                     + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" 
                     + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
                     + System.getenv("OPENSHIFT_APP_NAME");
