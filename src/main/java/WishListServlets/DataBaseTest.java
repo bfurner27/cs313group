@@ -45,7 +45,7 @@ public class DataBaseTest extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet DataBaseTest</title>");            
+            out.println("<title>Servlet DataBaseTest MK2</title>");            
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet DataBaseTest at " + request.getContextPath() + "</h1>");
