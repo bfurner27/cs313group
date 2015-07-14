@@ -7,29 +7,18 @@
 package WishList.Storage;
 
 import java.io.Serializable;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
  * @author Schuyler
  */
-@Entity
-@Table(name = "item")
 public class Item implements Displayable, Serializable {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String picture_url;
     private String url;
     private String description;
     private String name;
-    private float price;
-    @Column (name = "list_id") 
+    private float price; 
     private int listId;
 
     public int getListId() {

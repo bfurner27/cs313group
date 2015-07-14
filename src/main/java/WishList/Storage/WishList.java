@@ -7,18 +7,12 @@
 package WishList.Storage;
 
 import java.io.Serializable;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 /**
  *
  * @author Schuyler
  */
-@Entity
 public class WishList implements Displayable, Serializable {
-    @Id
-    @GeneratedValue
     private int id;
     private String owner;
     private String name;
