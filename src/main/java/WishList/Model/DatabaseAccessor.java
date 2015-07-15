@@ -32,22 +32,20 @@ public class DatabaseAccessor {
     static String PASS;
     
     public DatabaseAccessor() {
-        if (DB_URL == null) {
-            String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
-            
-            if (dbHost == null) {
-                DB_URL = "jdbc:mysql://localhost:3306/wishlist";
-                USER = "root";
-                PASS = "";
-            }
-            else {
-                DB_URL = "jdbc:mysql://" + dbHost + ":" 
-                    + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
-                    + System.getenv("OPENSHIFT_APP_NAME");
-                
-                USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-                PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-            }
+        String dbHost = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
+
+        if (dbHost == null) {
+            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
+            USER = "root";
+            PASS = "";
+        }
+        else {
+            DB_URL = "jdbc:mysql://" + dbHost + ":" 
+                + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
+                + System.getenv("OPENSHIFT_APP_NAME");
+
+            USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+            PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
         }
     }
     
