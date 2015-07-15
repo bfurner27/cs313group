@@ -24,17 +24,66 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This should Work! MK 3</h1>
+        <h1>This should Work! MK 4</h1>
         <%
-            WishListController wlc = new ConcreteWishListController();
+            String DB_URL = null;
+
+            //  Database credentials
+            String USER;
+            String PASS;
+            String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
+            
+            if (dbHost == null) {
+                DB_URL = "jdbc:mysql://localhost:3306/wishlist";
+                USER = "root";
+                PASS = "";
+            }
+            else {
+                DB_URL = "jdbc:mysql://" + dbHost + ":" 
+                    + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
+                    + System.getenv("OPENSHIFT_APP_NAME");
+                
+                USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
+                PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
+            }
+        
+            
+            Connection conn = null;
+            PreparedStatement  stmt = null;
+            List<WishList> result = new ArrayList<WishList>();
+
+            //STEP 2: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //STEP 3: Open a connection
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+            //STEP 4: Execute a query
+            String sql;
+            sql = "SELECT * FROM wishlist WHERE owner = ?";
+            stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, "schuylerrs");
+            ResultSet rs = stmt.executeQuery();
+
+            //STEP 5: Extract data from result set
+            while(rs.next()){
+                result.add(new WishList(rs.getString("name"), rs.getString("description"), rs.getString("owner"), rs.getBoolean("is_public"), rs.getString("imageurl")));
+            }
+            //STEP 6: Clean-up environment
+            rs.close();
+            stmt.close();
+            conn.close();
+            
+            //WishListController wlc = new ConcreteWishListController();
         %>
         controller created...<br/>
         <%
-            List<WishList> lists = wlc.getWishLists("schuylerrs");
+            //List<WishList> lists = wlc.getWishLists("schuylerrs");
         %>
         query finished...<br/>
         <%  
-            pageContext.setAttribute("lists", lists);
+            pageContext.setAttribute("lists", result);
         %>
         ${lists.size()} lists <br/>
         <c:forEach var="list" items="${lists}">
