@@ -11,6 +11,7 @@ import WishList.Storage.Item;
 import WishList.Storage.WishList;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -33,7 +34,6 @@ public class DatabaseAccessor {
     public DatabaseAccessor() {
         if (DB_URL == null) {
             String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
-            String dbPort = System.getenv("$OPENSHIFT_MYSQL_DB_PORT");
             
             if (dbHost == null) {
                 DB_URL = "jdbc:mysql://localhost:3306/wishlist";
@@ -41,11 +41,10 @@ public class DatabaseAccessor {
                 PASS = "";
             }
             else {
-                //DB_URL = "jdbc:mysql://" + dbHost + ":" + dbPort + "/java";
-                DB_URL = "mysql://" 
-                    + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" 
+                DB_URL = "jdbc:mysql://" + dbHost + ":" 
                     + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
                     + System.getenv("OPENSHIFT_APP_NAME");
+                
                 USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
                 PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
             }
@@ -76,22 +75,22 @@ public class DatabaseAccessor {
     
     public List<WishList> getWishLists(String owner){
         Connection conn = null;
-        Statement stmt = null;
+        PreparedStatement  stmt = null;
         List<WishList> result = new ArrayList<WishList>();
         try {
             //STEP 2: Register JDBC driver
             Class.forName("com.mysql.jdbc.Driver");
 
             //STEP 3: Open a connection
-            System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             //STEP 4: Execute a query
-            System.out.println("Creating statement...");
-            stmt = conn.createStatement();
             String sql;
-            sql = "SELECT * FROM wishlist WHERE owner = \'" + owner + "\'";
-            ResultSet rs = stmt.executeQuery(sql);
+            sql = "SELECT * FROM wishlist WHERE owner = ?";
+            stmt = conn.prepareStatement(sql);
+            
+            stmt.setString(1, owner);
+            ResultSet rs = stmt.executeQuery();
             
             //STEP 5: Extract data from result set
             while(rs.next()){
@@ -121,21 +120,6 @@ public class DatabaseAccessor {
                se.printStackTrace();
             }//end finally try
          }//end try
-
-//        EntityManagerFactory emf = Persistence.createEntityManagerFactory("wishlist");
-//        List<WishList> result = null;
-//        try {            
-//            EntityManager em = emf.createEntityManager();
-//                    
-//            ExpressionBuilder builder = new ExpressionBuilder();
-//            ReadAllQuery databaseQuery = new ReadAllQuery(WishList.class, builder);
-//            databaseQuery.setSelectionCriteria(builder.get("owner").equal(owner));
-//
-//            Query query = ((JpaEntityManager)em.getDelegate()).createQuery(databaseQuery);
-//            result = query.getResultList(); 
-//        } finally {
-//            emf.close();
-//        }
         
         return result;
     }
