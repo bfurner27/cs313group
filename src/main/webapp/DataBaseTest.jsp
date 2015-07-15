@@ -4,6 +4,8 @@
     Author     : Schuyler
 --%>
 
+<%@page import="WishList.Controller.MockControllers.MockWishListController"%>
+<%@page import="WishList.Controller.MockControllers.MockItemController"%>
 <%@page import="WishList.Storage.Item"%>
 <%@page import="WishList.Controller.ConcreteItemController"%>
 <%@page import="WishList.Controller.Interfaces.ItemController"%>
@@ -28,6 +30,7 @@
     </head>
     <body>
     <h1>This should Work! MK 6</h1>
+    <h2> WishList get testing</h2>
         <%
             WishListController wlc = new ConcreteWishListController();
         %>
@@ -44,21 +47,99 @@
             ${list.getName()} <br/>
         </c:forEach>
             
+    <h2> WishList add testing</h2>
+    <%
+        WishListController mwlc = new MockWishListController();
+        for (WishList list : mwlc.getWishLists("schuylerrs")) {
+            wlc.addWishList(list);
+        }
+    %>
+    query finished...<br/>
+    <%  
+        lists = wlc.getWishLists("schuylerrs");
+        pageContext.setAttribute("lists", lists);
+    %>
+    ${lists.size()} lists after adding <br/>
+    <c:forEach var="list" items="${lists}">
+        ${list.getName()} <br/>
+    </c:forEach>
+        
+    <h2> WishList remove testing</h2>
+    <%
+        for (WishList list : mwlc.getWishLists("schuylerrs")) {
+            wlc.removeWishList(list.getId());
+        }
+    %>
+    query finished...<br/>
+    <%  
+        lists = wlc.getWishLists("schuylerrs");
+        pageContext.setAttribute("lists", lists);
+    %>
+    ${lists.size()} lists after adding <br/>
+    <c:forEach var="list" items="${lists}">
+        ${list.getName()} <br/>
+    </c:forEach>
             
+    <h2> Item get testing</h2>        
         <%
             ItemController ic = new ConcreteItemController();
         %>
         Item controller created...<br/>
         <%
-            List<Item> items = ic.getItems(lists.get(1).getId());
+            List<Item> items = ic.getItems(2);
         %>
         Item query finished...<br/>
         <%  
             pageContext.setAttribute("items", items);
         %>
-        Items from list #${lists.get(1).getId()}<br/>
+        Items from list #2<br/>
         <c:forEach var="item" items="${items}">
             ${item.getDisplayName()} <br/>
         </c:forEach>
+    
+    <h2> Item add testing</h2>
+    <%
+        MockItemController mic = new MockItemController();
+        for (Item item : mic.getItems(lists.get(1).getId())) {
+            ic.addItem(item);
+        }
+    %>
+    Items added...<br/>
+    <%
+        items = ic.getItems(2);
+    %>
+    Item query finished...<br/>
+    <%  
+        pageContext.setAttribute("items", items);
+    %>
+    Items from list #2 after adding<br/>
+    <c:forEach var="item" items="${items}">
+        ${item.getDisplayName()} <br/>
+    </c:forEach>
+            
+        
+    <h2> Item delete testing</h2>
+    <%
+        int count = 0;
+        for (Item item : items) {
+            ic.removeItem(item.getId());
+            if (count >= 3)
+                break;
+            count++;
+        }
+    %>
+    Items added...<br/>
+    <%
+        items = ic.getItems(2);
+    %>
+    Item query finished...<br/>
+    <%  
+        pageContext.setAttribute("items", items);
+    %>
+    Items from list #2 after adding<br/>
+    <c:forEach var="item" items="${items}">
+        ${item.getDisplayName()} <br/>
+    </c:forEach>
+            
     </body>
 </html>
