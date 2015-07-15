@@ -27,11 +27,16 @@
         <h1>This should Work!</h1>
         <%
             WishListController wlc = new ConcreteWishListController();
+        %>
+        controller created...<br/>
+        <%
             List<WishList> lists = wlc.getWishLists("schuylerrs");
-            
+        %>
+        query finished...<br/>
+        <%  
             pageContext.setAttribute("lists", lists);
         %>
-        
+        ${lists.size()} lists <br/>
         <c:forEach var="list" items="${lists}">
             ${list.getName()} <br/>
         </c:forEach>
