@@ -4,6 +4,7 @@
     Author     : Schuyler
 --%>
 
+<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
@@ -23,52 +24,16 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>This should Work!</h1>
         <%
             WishListController wlc = new ConcreteWishListController();
-            List<String> lists = new ArrayList<String>();//wlc.getWishLists("schuylerrs");
-            
-                String DB_URL = "jdbc:mysql://" 
-                    + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" 
-                    + System.getenv("OPENSHIFT_MYSQL_DB_PORT") + "/"
-                    + System.getenv("OPENSHIFT_APP_NAME");
-                String USER = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-                String PASS = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-            
-                Class.forName("com.mysql.jdbc.Driver");
-
-                Connection conn = null;
-                Statement stmt = null;
-                
-            //STEP 3: Open a connection
-                %>
-                Connecting to database...<br/>
-            <%
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-//            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
-//            USER = "root";
-//            PASS = "";
-//            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-
-            //STEP 4: Execute a query
-            %>
-                Creating statement... <br/>
-            <%
-            stmt = conn.createStatement();
-            String sql;
-            sql = "SELECT * FROM wishlist";
-            ResultSet rs = stmt.executeQuery(sql);
-            int count = 1;
-            String output;
-            while(rs.next()){
-                lists.add(rs.getString("name"));
-            }
+            List<WishList> lists = wlc.getWishLists("schuylerrs");
             
             pageContext.setAttribute("lists", lists);
         %>
         
         <c:forEach var="list" items="${lists}">
-            ${list} <br/>
+            ${list.getName()} <br/>
         </c:forEach>
     </body>
 </html>
