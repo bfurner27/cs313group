@@ -24,7 +24,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This should Work!</h1>
+        <h1>This should Work! MK 3</h1>
         <%
             WishListController wlc = new ConcreteWishListController();
         %>
