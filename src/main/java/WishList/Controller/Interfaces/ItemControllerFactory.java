@@ -6,6 +6,7 @@
 
 package WishList.Controller.Interfaces;
 
+import WishList.Controller.ConcreteItemController;
 import WishList.Controller.MockControllers.MockItemController;
 
 /**
@@ -15,6 +16,6 @@ import WishList.Controller.MockControllers.MockItemController;
 public class ItemControllerFactory {
     public ItemController getItemController()
     {
-        return new MockItemController();
+        return new ConcreteItemController();
     }
 }

@@ -57,6 +57,7 @@ public class WishList implements Displayable, Serializable {
         this.description = description;
         this.imageUrl = imageUrl;
         this.owner = owner;
+        this.is_public = is_public;
         
     }
     
@@ -65,6 +66,7 @@ public class WishList implements Displayable, Serializable {
         this.description = description;
         this.imageUrl = imageUrl;
         this.owner = owner;
+        this.is_public = is_public;
         
     }
     

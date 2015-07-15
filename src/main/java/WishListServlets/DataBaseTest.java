@@ -48,7 +48,7 @@ public class DataBaseTest extends HttpServlet {
             out.println("<title>Servlet DataBaseTest MK3</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet DataBaseTest MK 4 </h1>");
+            out.println("<h1>Servlet DataBaseTest MK 5 </h1>");
             for (WishList list : lists) {
                 out.println(list.getName() + "<br/>");
             }

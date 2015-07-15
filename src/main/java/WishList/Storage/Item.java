@@ -7,6 +7,9 @@
 package WishList.Storage;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -18,17 +21,12 @@ public class Item implements Displayable, Serializable {
     private String url;
     private String description;
     private String name;
+    private Date dateAdded;
     private float price; 
     private int listId;
-
-    public int getListId() {
-        return listId;
-    }
-
-    public void setListId(int listId) {
-        this.listId = listId;
-    }
-    
+    private int priority;
+    private boolean claimed;
+  
     /**
      *
      */
@@ -53,6 +51,9 @@ public class Item implements Displayable, Serializable {
         this.name = title;
         this.price = price;
         this.listId = listId;
+        this.dateAdded = new Date();
+        this.priority = 1;
+        this.claimed = false;
     }
 
     /**
@@ -64,9 +65,11 @@ public class Item implements Displayable, Serializable {
      * @param price
      * @param id
      * @param listId
+     * @param dateAdded
+     * @param priority
      */
     public Item(String imageUrl, String url, String descrition, String title, 
-            float price, int id, int listId) {
+            float price, int id, int listId, Date dateAdded, int priority, boolean isClaimed) {
         this.picture_url = imageUrl;
         this.url = url;
         this.description = descrition;
@@ -74,6 +77,29 @@ public class Item implements Displayable, Serializable {
         this.price = price;
         this.id = id;
         this.listId = listId;
+        this.dateAdded = dateAdded;
+        this.priority = priority;
+        this.claimed = isClaimed;
+    }
+
+    public Date getDateAdded() {
+        return dateAdded;
+    }
+    
+    public String getDateString() {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        
+        return dateFormat.format(this.dateAdded);
+    }
+    
+    public String getDateSQL() {
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        
+        return dateFormat.format(this.dateAdded);
+    }
+
+    public void setDateAdded(Date dateAdded) {
+        this.dateAdded = dateAdded;
     }
     
     /**
@@ -168,6 +194,10 @@ public class Item implements Displayable, Serializable {
     public String getPrice() {
         return "$" + String.format("%.2f", price);
     }
+    
+    public Float getFloatPrice() {
+        return price;
+    }
 
     /**
      *
@@ -193,5 +223,45 @@ public class Item implements Displayable, Serializable {
     @Override
     public String getDescription() {
         return description;
+    }
+    
+    public String getPicture_url() {
+        return picture_url;
+    }
+
+    public void setPicture_url(String picture_url) {
+        this.picture_url = picture_url;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getPriority() {
+        return priority;
+    }
+
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+    
+    public int getListId() {
+        return listId;
+    }
+
+    public void setListId(int listId) {
+        this.listId = listId;
+    }
+
+    public boolean isClaimed() {
+        return claimed;
+    }
+
+    public void setClaimed(boolean isClaimed) {
+        this.claimed = isClaimed;
     }
 }

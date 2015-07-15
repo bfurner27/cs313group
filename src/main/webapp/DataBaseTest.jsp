@@ -50,25 +50,7 @@
     <h2> WishList add testing</h2>
     <%
         WishListController mwlc = new MockWishListController();
-        for (WishList list : mwlc.getWishLists("schuylerrs")) {
-            wlc.addWishList(list);
-        }
-    %>
-    query finished...<br/>
-    <%  
-        lists = wlc.getWishLists("schuylerrs");
-        pageContext.setAttribute("lists", lists);
-    %>
-    ${lists.size()} lists after adding <br/>
-    <c:forEach var="list" items="${lists}">
-        ${list.getName()} <br/>
-    </c:forEach>
-        
-    <h2> WishList remove testing</h2>
-    <%
-        for (WishList list : mwlc.getWishLists("schuylerrs")) {
-            wlc.removeWishList(list.getId());
-        }
+        wlc.addWishList(mwlc.getWishLists("schuylerrs").get(0));
     %>
     query finished...<br/>
     <%  
@@ -86,7 +68,7 @@
         %>
         Item controller created...<br/>
         <%
-            List<Item> items = ic.getItems(5);
+            List<Item> items = ic.getItems(lists.get(0).getId());
         %>
         Item query finished...<br/>
         <%  
@@ -100,7 +82,7 @@
     <h2> Item add testing</h2>
     <%
         MockItemController mic = new MockItemController();
-        for (Item item : mic.getItems(5)) {
+        for (Item item : mic.getItems(lists.get(0).getId())) {
             ic.addItem(item);
         }
     %>
@@ -141,5 +123,19 @@
         ${item.getDisplayName()} <br/>
     </c:forEach>
             
+        
+    <h2> WishList remove testing</h2>
+    <%
+        wlc.removeWishList(mwlc.getWishLists("schuylerrs").get(0).getId());
+    %>
+    query finished...<br/>
+    <%  
+        lists = wlc.getWishLists("schuylerrs");
+        pageContext.setAttribute("lists", lists);
+    %>
+    ${lists.size()} lists after removing <br/>
+    <c:forEach var="list" items="${lists}">
+        ${list.getName()} ${list.getId()} <br/>
+    </c:forEach>
     </body>
 </html>
