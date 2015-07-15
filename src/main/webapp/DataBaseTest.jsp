@@ -44,11 +44,11 @@
                 %>
                 Connecting to database...<br/>
             <%
-//            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
-            USER = "root";
-            PASS = "";
             conn = DriverManager.getConnection(DB_URL,USER,PASS);
+//            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
+//            USER = "root";
+//            PASS = "";
+//            conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             //STEP 4: Execute a query
             %>
