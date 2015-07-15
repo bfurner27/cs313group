@@ -4,6 +4,7 @@
     Author     : Schuyler
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.Connection"%>
@@ -25,7 +26,7 @@
         <h1>Hello World!</h1>
         <%
             WishListController wlc = new ConcreteWishListController();
-            List<WishList> lists = wlc.getWishLists("schuylerrs");
+            List<String> lists = new ArrayList<String>();//wlc.getWishLists("schuylerrs");
             
                 String DB_URL = "jdbc:mysql://" 
                     + System.getenv("OPENSHIFT_MYSQL_DB_HOST") + ":" 
@@ -43,11 +44,11 @@
                 %>
                 Connecting to database...<br/>
             <%
-            conn = DriverManager.getConnection(DB_URL,USER,PASS);
-//            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
-//            USER = "root";
-//            PASS = "";
 //            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+            DB_URL = "jdbc:mysql://localhost:3306/wishlist";
+            USER = "root";
+            PASS = "";
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
 
             //STEP 4: Execute a query
             %>
@@ -57,18 +58,17 @@
             String sql;
             sql = "SELECT * FROM wishlist";
             ResultSet rs = stmt.executeQuery(sql);
-                
+            int count = 1;
+            String output;
             while(rs.next()){
-                %>
-                ${rs.getString("name")}
-                <%
+                lists.add(rs.getString("name"));
             }
             
             pageContext.setAttribute("lists", lists);
         %>
         
         <c:forEach var="list" items="${lists}">
-            ${list.getName()} <br/>
+            ${list} <br/>
         </c:forEach>
     </body>
 </html>
