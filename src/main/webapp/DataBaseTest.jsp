@@ -86,13 +86,13 @@
         %>
         Item controller created...<br/>
         <%
-            List<Item> items = ic.getItems(2);
+            List<Item> items = ic.getItems(5);
         %>
         Item query finished...<br/>
         <%  
             pageContext.setAttribute("items", items);
         %>
-        Items from list #2<br/>
+        Items from list #5<br/>
         <c:forEach var="item" items="${items}">
             ${item.getDisplayName()} <br/>
         </c:forEach>
@@ -100,13 +100,13 @@
     <h2> Item add testing</h2>
     <%
         MockItemController mic = new MockItemController();
-        for (Item item : mic.getItems(lists.get(1).getId())) {
+        for (Item item : mic.getItems(5)) {
             ic.addItem(item);
         }
     %>
     Items added...<br/>
     <%
-        items = ic.getItems(2);
+        items = ic.getItems(5);
     %>
     Item query finished...<br/>
     <%  
@@ -130,13 +130,13 @@
     %>
     Items added...<br/>
     <%
-        items = ic.getItems(2);
+        items = ic.getItems(5);
     %>
     Item query finished...<br/>
     <%  
         pageContext.setAttribute("items", items);
     %>
-    Items from list #2 after adding<br/>
+    Items from list #5 after deleting<br/>
     <c:forEach var="item" items="${items}">
         ${item.getDisplayName()} <br/>
     </c:forEach>
