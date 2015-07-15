@@ -24,14 +24,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This should Work! MK 4</h1>
+        <h1>This should Work! MK 5</h1>
         <%
             String DB_URL = null;
 
             //  Database credentials
             String USER;
             String PASS;
-            String dbHost = System.getenv("$OPENSHIFT_MYSQL_DB_HOST");
+            String dbHost = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
             
             if (dbHost == null) {
                 DB_URL = "jdbc:mysql://localhost:3306/wishlist";
