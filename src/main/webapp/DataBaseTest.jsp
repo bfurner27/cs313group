@@ -4,6 +4,9 @@
     Author     : Schuyler
 --%>
 
+<%@page import="WishList.Storage.Item"%>
+<%@page import="WishList.Controller.ConcreteItemController"%>
+<%@page import="WishList.Controller.Interfaces.ItemController"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.ResultSet"%>
@@ -24,7 +27,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This should Work! MK 6</h1>
+    <h1>This should Work! MK 6</h1>
         <%
             WishListController wlc = new ConcreteWishListController();
         %>
@@ -39,6 +42,23 @@
         ${lists.size()} lists <br/>
         <c:forEach var="list" items="${lists}">
             ${list.getName()} <br/>
+        </c:forEach>
+            
+            
+        <%
+            ItemController ic = new ConcreteItemController();
+        %>
+        Item controller created...<br/>
+        <%
+            List<Item> items = ic.getItems(lists.get(1).getId());
+        %>
+        Item query finished...<br/>
+        <%  
+            pageContext.setAttribute("items", items);
+        %>
+        Items from list #${lists.get(1).getId()}<br/>
+        <c:forEach var="item" items="${items}">
+            ${item.getDisplayName()} <br/>
         </c:forEach>
     </body>
 </html>
