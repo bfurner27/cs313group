@@ -32,6 +32,8 @@ public class RequestToCreateNewItem extends HttpServlet {
             throws ServletException, IOException {
         String listId = request.getParameter("listId");
         request.setAttribute("listId", listId);
+        //request.getSession().setAttribute("listId", listId);
+        //response.sendRedirect("WishList/addItem.jsp");
         request.getRequestDispatcher("WishList/addItem.jsp").forward(request, response);
     }
 

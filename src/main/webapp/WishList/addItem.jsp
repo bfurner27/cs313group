@@ -26,7 +26,7 @@
         
         
         <!-- validation javascript -->
-        <script src="javascript/validateAddItem.js" ></script>
+        <script src="WishList/javascript/validateAddItem.js" ></script>
 
          <link rel="stylesheet" href="css/main.css">
 
