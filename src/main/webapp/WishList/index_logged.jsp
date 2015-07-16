@@ -41,13 +41,23 @@
     <![endif]-->
   </head>
   <body>
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=482401615251513";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
 
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="#">My List</a></li>
+          <li role="presentation" class="active"><a href="www.aple.com">My List</a></li>
           <li role="presentation"><a href="../Friends">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
@@ -58,9 +68,9 @@
         <div class="emptySpace"></div>
         <div class="row">
             <div class="col-md-7">
-                <button type="button" class="btn btn-primary">
-                    Post to Facebook
-                </button>
+        <!-- Facebook link so that they can post their page to Facebook -->
+        <div class="fb-share-button" data-href="http://www.lds.org" 
+            data-layout="button_count"></div>
                 <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${initialListId}'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
