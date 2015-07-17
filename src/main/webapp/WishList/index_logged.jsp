@@ -51,13 +51,12 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="www.aple.com">My List</a></li>
+          <li role="presentation" class="active"><a href="../UserHomePage">My List</a></li>
           <li role="presentation"><a href="../Friends">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
@@ -67,7 +66,6 @@
         </div>
         <div class="emptySpace"></div>
         <div class="row">
-
             <div class="col-md-12">
                 
                 <div id="espace">                <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
@@ -78,7 +76,7 @@
             <ul class="media-list">
               <li class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="LoadFromListServlet?id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                    <h4 class="media-heading"><a href="ViewItems?list_id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button></h4>
                   ${item.getDescription()}

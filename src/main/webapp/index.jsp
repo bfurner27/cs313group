@@ -49,6 +49,7 @@
         <a href="Login"><img id="loginButton" src="images/FacebookButton.png"></a>
         <br />
         <div class="fb-share-button" data-href="#" 
-            data-layout="button_count"></div>
+            data-layout="button_count">
+        </div>
     </body>
 </html>
