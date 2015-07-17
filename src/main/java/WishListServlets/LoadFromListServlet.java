@@ -49,7 +49,7 @@ public class LoadFromListServlet extends HttpServlet {
             request.setAttribute("items", items);
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
-            List<WishList> items2 = wishListController.getWishLists("test");
+            List<WishList> items2 = wishListController.getWishLists(id);
             
             request.setAttribute("items2", items2);
             

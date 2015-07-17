@@ -51,13 +51,12 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a href="www.aple.com">My List</a></li>
+          <li role="presentation" class="active"><a href="../UserHomePage">My List</a></li>
           <li role="presentation"><a href="../Friends">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
