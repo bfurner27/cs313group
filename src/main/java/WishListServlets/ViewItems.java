@@ -44,7 +44,7 @@ public class ViewItems extends HttpServlet {
               int id2 = Integer.parseInt(id);
             List<Item> items;
         items = itemController.getItems(id2);
-            
+            request.setAttribute("listId", id);
             request.setAttribute("items", items);
            
             
