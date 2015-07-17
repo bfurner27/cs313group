@@ -70,7 +70,7 @@
             <input type="hidden" name="listId" id="wishlistId" value="${listId}" />
             
             <!-- submit form -->
-            <button type="submit" class="btn btn-primary">Create List</button><br />   
+            <button type="submit" class="btn btn-primary">Add Item</button><br />   
         </form>
         </div>
     </body>
