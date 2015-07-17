@@ -53,6 +53,18 @@ public class LoadFromListServlet extends HttpServlet {
             
             request.setAttribute("items2", items2);
             
+            // format the request url that will be used if the user would like to share an list with
+            // facebook
+            StringBuffer requestURL = request.getRequestURL();
+            String goToAddress = "ViewItems?list_id=" + id;
+            
+            // get the index of the last portion and replace it with the goToAddress
+            int indexLastPortion = requestURL.indexOf("LoadFromListServlet");
+            requestURL.delete(indexLastPortion, requestURL.length());
+            requestURL = requestURL.append(goToAddress);
+            
+            request.setAttribute("listURL", requestURL.toString());
+            
             request.getRequestDispatcher("WishList/index_logged.jsp").forward(request, response);
     }
 
