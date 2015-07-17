@@ -76,28 +76,9 @@
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
                         <div class="emptySpaceLittle2"></div>
-            <c:forEach var="item" items="${items}"> 
-            <ul class="media-list">
-              <li class="media">
-                <div class="media-left media-middle">
-                  <a href="#">
-                    <img width="64" height="64" class="media-object" src="${item.getImageUrl()}" alt="...">
-                  </a>
-                </div>
-                <div class="media-body">
-                    <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
-                                                                                        >
-                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                    </button>
-                  </h4>
-                  ${item.getDescrition()}
-                </div>
-              </li>
-            </ul>
-            </c:forEach> 
+
             </div>
-            
-            <div class="col-md-5">
+            <div class="col-md-12">
                 
                 <div id="espace">                <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
