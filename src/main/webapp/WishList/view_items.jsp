@@ -79,7 +79,7 @@
               </li>
             </ul>
             </c:forEach> 
-                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='../RequestToCreateNewItem'">
+                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='../RequestToCreateNewItem?listId='"${item.getId()}>
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
             </div>
