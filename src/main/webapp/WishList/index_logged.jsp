@@ -67,17 +67,7 @@
         </div>
         <div class="emptySpace"></div>
         <div class="row">
-            <div class="col-md-7">
-        <!-- Facebook link so that they can post their page to Facebook -->
-        <p>${listURL}</p>
-        <div class="fb-share-button" data-href="${listURL}" 
-            data-layout="button_count"></div>
-                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${initialListId}'">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
-                        <div class="emptySpaceLittle2"></div>
 
-            </div>
             <div class="col-md-12">
                 
                 <div id="espace">                <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
