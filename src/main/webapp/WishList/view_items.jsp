@@ -47,8 +47,8 @@
         <h1>My Wishlist</h1>
         <div id="navBorder"
         <ul class="nav nav-pills">
-          <li role="presentation" ><a href="../UserHomePage">My List</a></li>
-          <li role="presentation" class="active"><a href="../Friends">Friends</a></li>
+          <li role="presentation" ><a href="UserHomePage">My List</a></li>
+          <li role="presentation" class="active"><a href="Friends">Friends</a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
@@ -79,7 +79,7 @@
               </li>
             </ul>
             </c:forEach> 
-                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='../RequestToCreateNewItem?listId='"${listId}>
+                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${listId}'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
             </div>
