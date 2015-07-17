@@ -40,7 +40,7 @@
     <body>
         <div class="container">
         <h1>Insert Item</h1>
-        <form action="../CreateNewItem" method="POST" onsubmit="return validateAddItem()">
+        <form action="CreateNewItem" method="POST" onsubmit="return validateAddItem()">
            
             <div class="form-group">
             <!-- get item name -->
