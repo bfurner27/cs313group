@@ -75,7 +75,7 @@
                     <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a>
                     <c:if test="${not empty myListId}">
                         <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
-                                                                                        onclick="location.href='WishList/addList.jsp'">
+                                                                                        onclick="location.href='DeleteItem?itemId=${item.getId()}&listId=${myListId}'">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
                         </c:if>
