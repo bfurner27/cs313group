@@ -70,6 +70,8 @@ public class DatabaseAccessor {
             stmt.setString(1, Integer.toString(id));
             ResultSet rs = stmt.executeQuery();
             
+            rs.next();
+            
             //STEP 5: Extract data from result set
             result = new Item(rs.getString("picture_url"), rs.getString("url"), rs.getString("description"), rs.getString("name"), rs.getFloat("price"), rs.getInt("id"), rs.getInt("list_id"), rs.getDate("date_added"), rs.getInt("priority"), rs.getBoolean("is_claimed"));
  

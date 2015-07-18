@@ -70,6 +70,7 @@ public class Item implements Displayable, Serializable {
      * @param listId
      * @param dateAdded
      * @param priority
+     * @param isClaimed
      */
     public Item(String imageUrl, String url, String descrition, String title, 
             float price, int id, int listId, Date dateAdded, int priority, boolean isClaimed) {
@@ -124,7 +125,7 @@ public class Item implements Displayable, Serializable {
      */
     @Override
     public String getImageUrl() {
-        return picture_url.toString();
+        return this.picture_url;
     }
 
     /**
