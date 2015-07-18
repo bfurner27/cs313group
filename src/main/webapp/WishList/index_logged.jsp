@@ -76,7 +76,7 @@
             <ul class="media-list">
               <li class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="ViewItems?list_id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
+                    <h4 class="media-heading"><a href="ViewItems?my_list_id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button></h4>
                   ${item.getDescription()}

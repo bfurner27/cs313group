@@ -41,7 +41,6 @@
     <![endif]-->
   </head>
   <body>
-
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
@@ -50,7 +49,7 @@
           <li role="presentation" ><a href="UserHomePage">My List</a></li>
           <li role="presentation" class="active"><a href="Friends">Friends</a></li>
         </ul>
-                     <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
           <img id="profilePhoto" src="${user.photoURL}">
         </ul>
@@ -69,19 +68,25 @@
                   </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
+                    <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a>
+                    <c:if test="${not empty myListId}">
+                        <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
                                                                                         onclick="location.href='WishList/addList.jsp'">
                       <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
                     </button>
+                        </c:if>
                   </h4>
                   ${item.getDescrition()}
                 </div>
               </li>
             </ul>
             </c:forEach> 
-                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${listId}'">
+            <c:if test="${not empty myListId}">
+    var1 is empty or null.
+                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
+                  </c:if> 
             </div>
 
           </div>

@@ -41,7 +41,6 @@
     <![endif]-->
   </head>
   <body>
-
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
@@ -57,25 +56,18 @@
         </div>
         <div class="emptySpace"></div>
         <div class="row">
-            
             <div class="col-md-12">
-                
                       <div class="emptySpaceLittle"></div>
                 <c:forEach var="item" items="${items2}"> 
             <ul class="media-list">
               <li class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="ViewItems?list_id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="...">
-                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                    </button></h4>
+                    <h4 class="media-heading"><a href="ViewItems?friend_list_id=${item.getId()}">${item.getDisplayName()}</a></h4>
                   ${item.getDescription()}
                 </div>
               </li>
             </ul>
                 </c:forEach>
-                 <button type="button" class="btn btn-primary pull-right" aria-label="Left Align">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
             </div>
           </div>
       </div>

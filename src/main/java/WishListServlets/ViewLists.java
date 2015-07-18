@@ -51,8 +51,8 @@ public class ViewLists extends HttpServlet {
             FacebookController.getInstance().setFacebookObject(facebook, oauthCode);
 
             Person displayUser = FacebookController.getInstance().requestUserInfo();
-                    String friendId = request.getParameter("friend_id");
-                    UserController userController = new UserControllerFactory().getUserController();
+            String friendId = request.getParameter("friend_id");
+            UserController userController = new UserControllerFactory().getUserController();
                     
                     
             WishListController wishListController = new WishListControllerFactory().getWishListController();

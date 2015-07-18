@@ -22,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author jeongyul kim
+ * @author kim
  */
 @WebServlet(name = "ViewItems", urlPatterns = {"/ViewItems"})
 public class ViewItems extends HttpServlet {
@@ -38,16 +38,26 @@ public class ViewItems extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-            String id = request.getParameter("list_id");
+        
+            String id = "";
+            
+            if (request.getParameter("friend_list_id") != null) {
+                id = request.getParameter("friend_list_id");
+                request.setAttribute("friendListId", id);
+            }
+            
+            if (request.getParameter("my_list_id") != null) {
+                id = request.getParameter("my_list_id");
+                request.setAttribute("myListId", id);
+            }
+            
               ItemController itemController = new ItemControllerFactory().getItemController();
      
-              int id2 = Integer.parseInt(id);
+            int id2 = Integer.parseInt(id);
             List<Item> items;
-        items = itemController.getItems(id2);
-            request.setAttribute("listId", id);
+            items = itemController.getItems(id2);
             request.setAttribute("items", items);
            
-            
             request.getRequestDispatcher("WishList/view_items.jsp").forward(request, response);
     }
 

@@ -89,7 +89,7 @@ public class Login extends HttpServlet {
             //found code from http://www.avajava.com/tutorials/lessons/how-do-i-read-a-properties-file.html
             
             // read in the file
-            propertiesPath = "C:\\Users\\Benjamin\\Documents\\NetBeansProjects\\PostProject\\src\\main\\java\\facebook4j.properties";
+            propertiesPath = "C:\\Users\\jeongyul kim\\Documents\\NetBeansProjects\\cs313group\\src\\main\\java\\facebook4j.properties";
             File propertiesFile = new File(propertiesPath);
             Properties properties;
             // load the file into the properties object
