@@ -53,8 +53,9 @@ public class CreateNewItem extends HttpServlet {
         
         //add item to the list
         ic.addItem(new Item(pictureURL, itemURL, description, name, price, listId));
+        String urlRedirect = "ViewItems?list_id=" + sListId; 
         
-        response.sendRedirect("UserHomePage");
+        response.sendRedirect(urlRedirect);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
