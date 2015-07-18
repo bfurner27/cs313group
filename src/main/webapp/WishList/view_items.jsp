@@ -73,7 +73,7 @@
         </ul>
         </div>
         <div class="emptySpace"></div>
-        <div class="fb-share-button pull-right" data-href="${shareURL}?friend_list_id=${myListId}" 
+        <div class="fb-share-button pull-right" data-href="${shareURL}" 
             data-layout="button_count">
         </div>
         <div class="row">
