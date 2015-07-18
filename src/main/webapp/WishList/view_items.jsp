@@ -82,7 +82,6 @@
             </ul>
             </c:forEach> 
             <c:if test="${not empty myListId}">
-    var1 is empty or null.
                                         <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </button>
