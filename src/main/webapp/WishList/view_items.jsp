@@ -41,6 +41,18 @@
     <![endif]-->
   </head>
   <body>
+        <div id="fb-root"></div>
+        <script>
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.4&appId=482401615251513";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        
 <div id="status"></div>
       <div id="wrapper">
         <h1>My Wishlist</h1>
@@ -61,10 +73,13 @@
         </ul>
         </div>
         <div class="emptySpace"></div>
+        <div class="fb-share-button pull-right" data-href="${shareURL}?friend_list_id=${myListId}" 
+            data-layout="button_count">
+        </div>
         <div class="row">
             <div class="col-md-12">
 
-                        <div class="emptySpaceLittle"></div>
+            <div class="emptySpaceLittle"></div>
             <c:forEach var="item" items="${items}"> 
             <ul class="media-list">
               <li class="media">
@@ -75,8 +90,10 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a>
+
                     <c:choose>
                         <c:when test="${not empty myListId}"> 
+
                             <button type="button" class="btn btn-info btn-xs pull-right" aria-label="..." onclick="location.href='DeleteItem?itemId=${item.getId()}&listId=${myListId}'" title="Edit This Item">
                               <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Edit </span>
                             </button>
@@ -116,7 +133,9 @@
             </div>
 
           </div>
+
       </div>
+
 <div id="servletLoaded">false</div>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
