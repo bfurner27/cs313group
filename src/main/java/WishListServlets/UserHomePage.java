@@ -7,9 +7,9 @@ package WishListServlets;
 
 import WishList.Controller.FacebookController;
 import WishList.Controller.Interfaces.ItemController;
-import WishList.Controller.Interfaces.ItemControllerFactory;
+import WishList.Controller.Factories.ItemControllerFactory;
 import WishList.Controller.Interfaces.WishListController;
-import WishList.Controller.Interfaces.WishListControllerFactory;
+import WishList.Controller.Factories.WishListControllerFactory;
 import WishList.Storage.Item;
 import WishList.Storage.Person;
 import WishList.Storage.WishList;

@@ -4,10 +4,11 @@
  * and open the template in the editor.
  */
 
-package WishList.Controller.Interfaces;
+package WishList.Controller.Factories;
 
-import WishList.Controller.ConcreteWishListController;
-import WishList.Controller.MockControllers.MockWishListController;
+import WishList.Controller.ControllerImplementations.ConcreteWishListController;
+import WishList.Controller.Interfaces.WishListController;
+import WishList.Controller.ControllerImplementations.MockWishListController;
 
 /**
  *

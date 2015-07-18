@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package WishList.Controller;
+package WishList.Controller.ControllerImplementations;
 
+import WishList.Controller.FacebookController;
 import WishList.Controller.Interfaces.UserController;
 import WishList.Storage.Person;
 import java.util.ArrayList;

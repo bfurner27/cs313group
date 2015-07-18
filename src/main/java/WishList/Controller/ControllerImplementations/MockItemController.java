@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package WishList.Controller.MockControllers;
+package WishList.Controller.ControllerImplementations;
 
 import WishList.Controller.Interfaces.ItemController;
 import WishList.Storage.Item;

@@ -6,9 +6,9 @@
 package WishListServlets;
 
 import WishList.Controller.Interfaces.ItemController;
-import WishList.Controller.Interfaces.ItemControllerFactory;
+import WishList.Controller.Factories.ItemControllerFactory;
 import WishList.Controller.Interfaces.WishListController;
-import WishList.Controller.Interfaces.WishListControllerFactory;
+import WishList.Controller.Factories.WishListControllerFactory;
 import WishList.Storage.Item;
 import WishList.Storage.WishList;
 import java.io.IOException;
