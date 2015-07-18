@@ -50,20 +50,24 @@ public class UserHomePage extends HttpServlet {
             FacebookController.getInstance().setFacebookObject(facebook, oauthCode);
 
             Person displayUser = FacebookController.getInstance().requestUserInfo();
-            
+            List<Person> myFriends = displayUser.getFriends();
+            int numFriends = myFriends.size();
             //response.getWriter().write(displayUser.getFriends().get(0).getName());
-            
+       
             request.getSession().setAttribute("user", displayUser);
             
             ItemController itemController = new ItemControllerFactory().getItemController();
 
             List<Item> items = itemController.getItems(1);
-
+ 
             request.setAttribute("items", items);
+            request.getSession().setAttribute("numFriends", numFriends);
+  
             
             WishListController wishListController = new WishListControllerFactory().getWishListController();
             List<WishList> items2 = wishListController.getWishLists(displayUser.getUserId());
             int initialListId = 0;
+            
             try {
                 initialListId = items2.get(0).getId();
             } catch (Exception e) {
