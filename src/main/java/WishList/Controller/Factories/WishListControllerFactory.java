@@ -6,9 +6,9 @@
 
 package WishList.Controller.Factories;
 
-import WishList.Controller.ControllerImplementations.ConcreteWishListController;
+import WishList.Controller.Implementations.ConcreteWishListController;
 import WishList.Controller.Interfaces.WishListController;
-import WishList.Controller.ControllerImplementations.MockWishListController;
+import WishList.Controller.Implementations.MockWishListController;
 
 /**
  *

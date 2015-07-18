@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package WishList.Controller.ControllerImplementations;
+package WishList.Controller.Implementations;
 
 import WishList.Controller.Interfaces.ItemController;
 import WishList.Model.DatabaseAccessor;
@@ -40,6 +40,6 @@ public class ConcreteItemController implements ItemController {
     
     @Override
     public boolean updateItem(Item updated){
-        return true;
+        return dba.updateItem(updated);
     }
 }

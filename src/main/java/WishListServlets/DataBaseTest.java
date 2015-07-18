@@ -6,7 +6,7 @@ package WishListServlets;
  * and open the template in the editor.
  */
 
-import WishList.Controller.ControllerImplementations.ConcreteWishListController;
+import WishList.Controller.Implementations.ConcreteWishListController;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Storage.WishList;
 import java.io.IOException;

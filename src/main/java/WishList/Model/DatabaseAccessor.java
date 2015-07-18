@@ -14,9 +14,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * More information can be found here: https://wiki.eclipse.org/EclipseLink/Examples/JPA
@@ -213,6 +214,65 @@ public class DatabaseAccessor {
     
     public boolean removeItem(Item item){                
         return removeItem(item.getId());
+    }
+    
+    public boolean updateItem(Item item) {
+        boolean success = true;
+        Connection conn = null;
+        PreparedStatement  stmt = null;
+        
+        try {
+            //STEP 2: Register JDBC driver
+            Class.forName("com.mysql.jdbc.Driver");
+
+            //STEP 3: Open a connection
+            conn = DriverManager.getConnection(DB_URL,USER,PASS);
+
+            //STEP 4: Execute a query
+            String sql;
+            sql = "UPDATE item SET list_id = ?, description = ?, price = ?, url = ?, picture_url = ?, date_added = ?, priority = ?, is_claimed = ?, name = ? WHERE id = ?";
+            stmt = conn.prepareStatement(sql);
+            
+            stmt.setInt(1, item.getListId());
+            stmt.setString(2, item.getDescription());
+            stmt.setFloat(3, item.getFloatPrice());
+            stmt.setString(4, item.getUrl());
+            stmt.setString(5, item.getImageUrl());
+            stmt.setString(6, item.getDateSQL());
+            stmt.setInt(7, item.getPriority());
+            stmt.setBoolean(8, item.isClaimed());
+            stmt.setString(9, item.getName());
+            
+            stmt.setInt(10, item.getId());
+            
+            System.out.println(stmt.toString());
+            stmt.execute();
+            
+            //STEP 6: Clean-up environment
+            stmt.close();
+            conn.close();
+         }catch(SQLException se){
+            Logger.getLogger(DatabaseAccessor.class.getName()).log(Level.SEVERE, null, se);
+            success = false;
+         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DatabaseAccessor.class.getName()).log(Level.SEVERE, null, ex);
+            success = false;
+        }finally{
+            //finally block used to close resources
+            try{
+               if(stmt!=null)
+                  stmt.close();
+            }catch(SQLException se2){
+            }// nothing we can do
+            try{
+               if(conn!=null)
+                  conn.close();
+            }catch(SQLException se){
+               se.printStackTrace();
+               success = false;
+            }//end finally try
+         }//end try
+        return success;
     }
     
     public List<WishList> getWishLists(String owner){

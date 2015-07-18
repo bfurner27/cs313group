@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package WishList.Controller.ControllerImplementations;
+package WishList.Controller.Implementations;
 
 import WishList.Controller.FacebookController;
 import WishList.Controller.Interfaces.UserController;
