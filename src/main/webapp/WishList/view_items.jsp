@@ -109,8 +109,8 @@
             </ul>
             </c:forEach> 
             <c:if test="${not empty myListId}">
-                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Item </span>
                 </button>
                   </c:if> 
             </div>
