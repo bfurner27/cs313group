@@ -42,7 +42,9 @@ iframe {
 }
 #logo {
     text-align: center;
-font-family: 'Dosis', sans-serif;
+font-family: 'Open Sans', sans-serif;
+font-size: 34px;
+font-weight: 700;
 color:darkslategray;
 margin-top: 40px;
 }
@@ -58,10 +60,11 @@ margin-top: 40px;
     border-color: lightgray;
     padding: 15px;
     border-radius: 4px;
+    
 }
 
 #navBorder {
-    
+    margin-top: 20px;
  border: 1px solid;
     padding: 4px;
 
@@ -104,4 +107,12 @@ background:whitesmoke;
 .media-object {
     border-color: lightgray;
     border: 1px solid black;
+}
+
+h1 {
+    text-align: center;
+    color:darkslategray;
+    font-family: 'Open Sans', sans-serif;
+font-size: 34px;
+font-weight: 700;
 }
