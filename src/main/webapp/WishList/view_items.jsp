@@ -81,7 +81,8 @@
                     </button>
                         </c:if>
                   </h4>
-                  ${item.getDescrition()}
+                  ${item.getDescrition()} <br />
+                  <div> <b>Price:</b> ${item.getPrice()}</div>
                 </div>
               </li>
             </ul>

@@ -63,19 +63,13 @@
                   </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="ViewLists?friend_id=${friend.getUserId()}">${friend.getName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..."
-                                                                                        onclick="location.href='addList.jsp'">
-                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                    </button>
+                    <h4 class="media-heading"><a href="ViewLists?friend_id=${friend.getUserId()}">${friend.getName()}</a>
                   </h4>
                   ${friend.getDescription()}
                 </div>
               </li>
             </ul>
             </c:forEach> 
-                                        <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='addItem.jsp'">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
             </div>
           </div>
       </div>
