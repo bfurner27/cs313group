@@ -75,11 +75,20 @@
                 </div>
                 <div class="media-body">
                     <h4 class="media-heading"><a href="${item.getUrl()}">${item.getTitle()}</a>
-                    <c:if test="${not empty myListId}">
-                        <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='DeleteItem?itemId=${item.getId()}&listId=${myListId}'">
-                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
-                    </button>
-                        </c:if>
+                    <c:choose>
+                        <c:when test="${not empty myListId}"> 
+                            <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='DeleteItem?itemId=${item.getId()}&listId=${myListId}'">
+                              <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                            </button>
+                        </c:when>
+                        <c:otherwise>
+                            <c:if test="${item.isClaimed()}">
+                                <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='ClaimItem?itemId=${item.getId()}'" title="claim">
+                                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                </button>
+                            </c:if>
+                        </c:otherwise>
+                    </c:choose>
                   </h4>
                   ${item.getDescrition()} <br />
                   <div> <b>Price:</b> ${item.getPrice()}</div>
