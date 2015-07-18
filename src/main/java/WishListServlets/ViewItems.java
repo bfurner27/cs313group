@@ -56,6 +56,9 @@ public class ViewItems extends HttpServlet {
             int id2 = Integer.parseInt(id);
             List<Item> items;
             items = itemController.getItems(id2);
+            
+            String shareURL = request.getRequestURL().toString();
+            request.setAttribute("shareURL", shareURL);
             request.setAttribute("items", items);
            
             request.getRequestDispatcher("WishList/view_items.jsp").forward(request, response);
