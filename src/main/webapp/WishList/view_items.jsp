@@ -82,11 +82,16 @@
                             </button>
                         </c:when>
                         <c:otherwise>
-                            <c:if test="${item.isClaimed()}">
-                                <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='ClaimItem?itemId=${item.getId()}'" title="claim">
-                                  <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                                </button>
-                            </c:if>
+                            <c:choose>
+                                <c:when test="${item.isClaimed()}">
+                                    <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='ClaimItem?itemId=${item.getId()}'" title="claim">
+                                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                    </button>
+                                </c:when>
+                                <c:otherwise>
+                                    <span class="glyphicon glyphicon-ok-circle" aria-hidden="true"> Claimed </span>
+                                </c:otherwise>
+                            </c:choose>
                         </c:otherwise>
                     </c:choose>
                   </h4>
