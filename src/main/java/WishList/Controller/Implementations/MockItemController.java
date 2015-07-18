@@ -56,4 +56,10 @@ public class MockItemController implements ItemController {
     {
         return true;
     }
+
+    @Override
+    public Item getItem(int itemId) {
+        Date today = new Date();
+        return new Item("http://ecx.images-amazon.com/images/I/313HPN793PL._AA160_.jpg", "http://www.amazon.com/Stanley-Proto-J1200GASD-Combination-Wrench/dp/B000LVI5OG/ref=sr_1_1?ie=UTF8&qid=1435701643&sr=8-1&keywords=gasd", "A bunch of tools", "Stanley Proto J1200GASD 10 Piece 12 Point Combination", (float) 172.99, 7, 2, today, 1, false);
+    }
 }

@@ -42,4 +42,9 @@ public class ConcreteItemController implements ItemController {
     public boolean updateItem(Item updated){
         return dba.updateItem(updated);
     }
+
+    @Override
+    public Item getItem(int itemId) {
+        return dba.getItem(itemId);
+    }
 }

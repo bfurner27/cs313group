@@ -17,5 +17,6 @@ public interface ItemController {
     public boolean addItem(Item item);    
     public boolean removeItem(int itemId);
     public List<Item> getItems(int listId);
+    public Item getItem(int itemId);
     public boolean updateItem(Item updated);
 }
