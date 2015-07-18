@@ -47,7 +47,7 @@
         <div id="navBorder"
         <ul class="nav nav-pills">
           <li role="presentation"><a href="../UserHomePage">My List</a></li>
-          <li role="presentation" class="active"><a href="../Friends">Friends</a></li>
+          <li role="presentation" class="active"><a href="../Friends">Friends <span class="badge">${numFriends}</span></a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!

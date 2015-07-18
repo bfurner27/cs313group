@@ -48,11 +48,11 @@
         <ul class="nav nav-pills">
             <c:if test="${not empty myListId}">
           <li role="presentation" class="active"><a href="UserHomePage">My List</a></li>
-          <li role="presentation"><a href="Friends">Friends</a></li>
+          <li role="presentation"><a href="Friends">Friends <span class="badge">${numFriends}</span></a></li>
           </c:if> 
           <c:if test="${not empty friendListId}">
           <li role="presentation"><a href="UserHomePage">My List</a></li>
-          <li role="presentation" class="active"><a href="Friends">Friends</a></li>
+          <li role="presentation" class="active"><a href="Friends">Friends <span class="badge">${numFriends}</span></a></li>
           </c:if> 
         </ul>
         <ul class="nav nav-pills pull-right">

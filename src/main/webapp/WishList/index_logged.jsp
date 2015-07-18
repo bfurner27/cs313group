@@ -57,7 +57,7 @@
         <div id="navBorder"
         <ul class="nav nav-pills">
           <li role="presentation" class="active"><a href="../UserHomePage">My List</a></li>
-          <li role="presentation"><a href="../Friends">Friends</a></li>
+          <li role="presentation"><a href="../Friends">Friends <span class="badge">${numFriends}</span></a></li>
         </ul>
                      <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
@@ -67,10 +67,7 @@
         <div class="emptySpace"></div>
         <div class="row">
             <div class="col-md-12">
-                
-                <div id="espace">                <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-                </button>
+                <div class="emptySpaceLittle"></div>              
                 </div>
                 <c:forEach var="item" items="${items2}"> 
             <ul class="media-list">
@@ -84,7 +81,9 @@
               </li>
             </ul>
                 </c:forEach>
-                
+  <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                </button>              
             </div>
           </div>
       </div>
