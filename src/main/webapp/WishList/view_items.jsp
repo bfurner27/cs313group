@@ -95,7 +95,7 @@
                     <c:choose>
                         <c:when test="${not empty myListId}"> 
                             <button type="button" class="btn btn-danger btn-xs pull-right" aria-label="..." onclick="location.href='DeleteItem?itemId=${item.getId()}&listId=${myListId}'">
-                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"> Remove </span>
+                                <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Remove</span>
                             </button>
                             <button type="button" class="btn btn-info btn-xs pull-right" aria-label="..." onclick="location.href='RequestToEditItem?itemId=${item.getId()}&listId=${myListId}'" title="Edit This Item">
                               <span class="glyphicon glyphicon-pencil" aria-hidden="true"> Edit </span>
@@ -126,8 +126,8 @@
             </ul>
             </c:forEach> 
             <c:if test="${not empty myListId}">
-                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"> Add Item </span>
+                <button type="button" class="btn btn-primary pull-right" aria-label="Left Align" onclick="location.href='RequestToCreateNewItem?listId=${myListId}'" title="Add A New Item To The List">
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true"> Item </span>
                 </button>
                   </c:if> 
             </div>

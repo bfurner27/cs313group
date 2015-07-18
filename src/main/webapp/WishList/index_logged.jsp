@@ -74,16 +74,16 @@
               <li class="media">
                 <div class="media-body">
                     <h4 class="media-heading"><a href="ViewItems?my_list_id=${item.getId()}">${item.getDisplayName()}</a><button type="button" class="btn btn-danger btn-xs pull-right" onclick="location.href='DeleteList?listId=${item.getId()}'" aria-label="...">
-                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+                      <span class="glyphicon glyphicon-remove-circle" aria-hidden="true">Remove</span>
                     </button></h4>
                   ${item.getDescription()}
                 </div>
               </li>
             </ul>
                 </c:forEach>
-  <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true">Add New List</span>
-                </button>              
+                    <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align" title="Add New List">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true">List</span>
+                    </button>              
             </div>
           </div>
         </div>
