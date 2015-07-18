@@ -85,8 +85,8 @@
                             <div align="right">
                                 <c:choose>
                                     <c:when test="${!item.isClaimed()}">
-                                        <button type="button" class="btn btn-xs pull-right" aria-label="..." onclick="location.href='ClaimItem?itemId=${item.getId()}'" title="Claim This Item">
-                                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                                        <button type="button" class="btn btn-info btn-xs pull-right" aria-label="..." onclick="location.href='ClaimItem?itemId=${item.getId()}'" title="Claim This Item">
+                                            <span class="glyphicon glyphicon-ok" aria-hidden="true"> Claim </span>
                                         </button>
                                     </c:when>
                                     <c:otherwise>

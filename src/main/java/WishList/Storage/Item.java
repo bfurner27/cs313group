@@ -45,7 +45,10 @@ public class Item implements Displayable, Serializable {
      */
     public Item(String imageUrl, String url, String descrition, String title, 
             float price, int listId) {
-        this.picture_url = imageUrl;
+        if (imageUrl != null)
+            this.picture_url = imageUrl;
+        else
+            this .picture_url = "http://hivewallpaper.com/wallpaper/2014/11/christmas-present-3-wide-wallpaper.jpg";
         this.url = url;
         this.description = descrition;
         this.name = title;
@@ -70,7 +73,10 @@ public class Item implements Displayable, Serializable {
      */
     public Item(String imageUrl, String url, String descrition, String title, 
             float price, int id, int listId, Date dateAdded, int priority, boolean isClaimed) {
-        this.picture_url = imageUrl;
+        if (imageUrl != null)
+            this.picture_url = imageUrl;
+        else
+            this .picture_url = "http://hivewallpaper.com/wallpaper/2014/11/christmas-present-3-wide-wallpaper.jpg";
         this.url = url;
         this.description = descrition;
         this.name = title;

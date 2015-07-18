@@ -50,7 +50,7 @@ public class ClaimItem extends HttpServlet {
         // update the database
         ic.updateItem(item);
         
-        String urlRedirect = "ViewItems?my_list_id=" + item.getListId(); 
+        String urlRedirect = "ViewItems?friend_list_id=" + item.getListId(); 
         
         response.sendRedirect(urlRedirect);
     }
