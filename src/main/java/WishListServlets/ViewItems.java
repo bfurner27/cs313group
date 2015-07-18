@@ -57,7 +57,7 @@ public class ViewItems extends HttpServlet {
             List<Item> items;
             items = itemController.getItems(id2);
             
-            String shareURL = request.getRequestURL().toString();
+            String shareURL = request.getRequestURL().toString() + "?friend_list_id=" + id;
             request.setAttribute("shareURL", shareURL);
             request.setAttribute("items", items);
            
