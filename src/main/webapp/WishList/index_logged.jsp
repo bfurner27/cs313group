@@ -82,7 +82,7 @@
             </ul>
                 </c:forEach>
   <button type="button" onclick="location.href='WishList/addList.jsp'" class="btn btn-primary pull-right" aria-label="Left Align">
-                  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                  <span class="glyphicon glyphicon-plus" aria-hidden="true">Add New List</span>
                 </button>              
             </div>
           </div>
