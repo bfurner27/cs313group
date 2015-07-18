@@ -49,7 +49,7 @@
           <li role="presentation"><a href="../UserHomePage">My List</a></li>
           <li role="presentation" class="active"><a href="../Friends">Friends <span class="badge">${numFriends}</span></a></li>
         </ul>
-                     <ul class="nav nav-pills pull-right">
+        <ul class="nav nav-pills pull-right">
           Welcome ${user.name}!
           <img id="profilePhoto" src="${user.photoURL}">
         </ul>
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-md-12">
                       <div class="emptySpaceLittle"></div>
-                <c:forEach var="item" items="${items2}"> 
+        <c:forEach var="item" items="${items2}"> 
             <ul class="media-list">
               <li class="media">
                 <div class="media-body">
@@ -67,7 +67,7 @@
                 </div>
               </li>
             </ul>
-                </c:forEach>
+        </c:forEach>
             </div>
           </div>
       </div>
