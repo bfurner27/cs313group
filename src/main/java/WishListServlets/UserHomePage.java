@@ -56,11 +56,8 @@ public class UserHomePage extends HttpServlet {
             request.getSession().setAttribute("user", displayUser);
             
             ItemController itemController = new ItemControllerFactory().getItemController();
-     
- 
-            List<Item> items = itemController.getItems(1);
-            
 
+            List<Item> items = itemController.getItems(1);
 
             request.setAttribute("items", items);
             

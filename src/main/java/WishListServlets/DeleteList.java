@@ -10,10 +10,8 @@ import WishList.Controller.Interfaces.ItemControllerFactory;
 import WishList.Controller.Interfaces.WishListController;
 import WishList.Controller.Interfaces.WishListControllerFactory;
 import WishList.Storage.Item;
-import WishList.Storage.WishList;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -22,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author kim
+ * @author jeongyul kim
  */
-@WebServlet(name = "ViewItems", urlPatterns = {"/ViewItems"})
-public class ViewItems extends HttpServlet {
+@WebServlet(name = "DeleteList", urlPatterns = {"/DeleteList"})
+public class DeleteList extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,27 +36,16 @@ public class ViewItems extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String listId = request.getParameter("listId");
+        // insert the item into the database
+        WishListControllerFactory wcf = new WishListControllerFactory();
+        WishListController wc = wcf.getWishListController();
+        int id = Integer.parseInt(listId);
+        wc.removeWishList(id);
+       
+        String urlRedirect = "UserHomePage"; 
         
-            String id = "";
-            
-            if (request.getParameter("friend_list_id") != null) {
-                id = request.getParameter("friend_list_id");
-                request.setAttribute("friendListId", id);
-            }
-            
-            if (request.getParameter("my_list_id") != null) {
-                id = request.getParameter("my_list_id");
-                request.setAttribute("myListId", id);
-            }
-
-            ItemController itemController = new ItemControllerFactory().getItemController();
-     
-            int id2 = Integer.parseInt(id);
-            List<Item> items;
-            items = itemController.getItems(id2);
-            request.setAttribute("items", items);
-           
-            request.getRequestDispatcher("WishList/view_items.jsp").forward(request, response);
+        response.sendRedirect(urlRedirect);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

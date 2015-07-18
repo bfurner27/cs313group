@@ -43,7 +43,7 @@ public class DeleteItem extends HttpServlet {
         ic.removeItem(id);
         //add item to the list
        
-        String urlRedirect = "ViewItems?list_id=" + listId; 
+        String urlRedirect = "ViewItems?my_list_id=" + listId; 
         
         response.sendRedirect(urlRedirect);
     }
