@@ -226,7 +226,7 @@ public class Item implements Displayable, Serializable {
     }
     
     public String getPicture_url() {
-        return picture_url;
+        return this.picture_url;
     }
 
     public void setPicture_url(String picture_url) {
